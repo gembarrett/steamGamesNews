@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		335B2345198D9D30008708B6 /* SteamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B2344198D9D30008708B6 /* SteamDetailsViewController.swift */; };
+		335B2349198DB058008708B6 /* SteamObjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B2348198DB058008708B6 /* SteamObjectDetails.swift */; };
+		335B234B198DB6A4008708B6 /* SteamObjectDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B234A198DB6A4008708B6 /* SteamObjectDetailsCell.swift */; };
+		335F9027198D82CC007412F9 /* SteamObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F9026198D82CC007412F9 /* SteamObject.swift */; };
+		338854F4198D336A0081345C /* SteamAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338854F3198D336A0081345C /* SteamAPIController.swift */; };
+		33B1C783198D47C800B02F43 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1C782198D47C800B02F43 /* Blank52.png */; };
+		33F1A4CE198D0E10008E9EAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */; };
+		33F1A4D0198D0E10008E9EAE /* SteamGamesNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */; };
+		33F1A4D3198D0E10008E9EAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F1A4D1198D0E10008E9EAE /* Main.storyboard */; };
+		33F1A4D5198D0E10008E9EAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33F1A4D4198D0E10008E9EAE /* Images.xcassets */; };
+		33F1A4E1198D0E11008E9EAE /* SteamGamesNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1A4E0198D0E11008E9EAE /* SteamGamesNewsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33F1A4DB198D0E11008E9EAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33F1A4C0198D0E10008E9EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33F1A4C7198D0E10008E9EAE;
+			remoteInfo = SteamGamesNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		335B2344198D9D30008708B6 /* SteamDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamDetailsViewController.swift; sourceTree = "<group>"; };
+		335B2348198DB058008708B6 /* SteamObjectDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamObjectDetails.swift; sourceTree = "<group>"; };
+		335B234A198DB6A4008708B6 /* SteamObjectDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamObjectDetailsCell.swift; sourceTree = "<group>"; };
+		335F9026198D82CC007412F9 /* SteamObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamObject.swift; path = ../SteamObject.swift; sourceTree = "<group>"; };
+		338854F3198D336A0081345C /* SteamAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamAPIController.swift; path = ../SteamAPIController.swift; sourceTree = "<group>"; };
+		33B1C782198D47C800B02F43 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = SOURCE_ROOT; };
+		33F1A4C8198D0E10008E9EAE /* SteamGamesNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamGamesNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F1A4CC198D0E10008E9EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SteamGamesNewsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		33F1A4D2198D0E10008E9EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33F1A4D4198D0E10008E9EAE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		33F1A4DA198D0E11008E9EAE /* SteamGamesNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamGamesNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F1A4DF198D0E11008E9EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33F1A4E0198D0E11008E9EAE /* SteamGamesNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamGamesNewsTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33F1A4C5198D0E10008E9EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33F1A4D7198D0E11008E9EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33F1A4BF198D0E10008E9EAE = {
+			isa = PBXGroup;
+			children = (
+				33F1A4CA198D0E10008E9EAE /* SteamGamesNews */,
+				33F1A4DD198D0E11008E9EAE /* SteamGamesNewsTests */,
+				33F1A4C9198D0E10008E9EAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33F1A4C9198D0E10008E9EAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33F1A4C8198D0E10008E9EAE /* SteamGamesNews.app */,
+				33F1A4DA198D0E11008E9EAE /* SteamGamesNewsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33F1A4CA198D0E10008E9EAE /* SteamGamesNews */ = {
+			isa = PBXGroup;
+			children = (
+				338854F3198D336A0081345C /* SteamAPIController.swift */,
+				335F9026198D82CC007412F9 /* SteamObject.swift */,
+				33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */,
+				33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */,
+				33F1A4D1198D0E10008E9EAE /* Main.storyboard */,
+				33F1A4D4198D0E10008E9EAE /* Images.xcassets */,
+				33B1C782198D47C800B02F43 /* Blank52.png */,
+				33F1A4CB198D0E10008E9EAE /* Supporting Files */,
+				335B2344198D9D30008708B6 /* SteamDetailsViewController.swift */,
+				335B2348198DB058008708B6 /* SteamObjectDetails.swift */,
+				335B234A198DB6A4008708B6 /* SteamObjectDetailsCell.swift */,
+			);
+			path = SteamGamesNews;
+			sourceTree = "<group>";
+		};
+		33F1A4CB198D0E10008E9EAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33F1A4CC198D0E10008E9EAE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33F1A4DD198D0E11008E9EAE /* SteamGamesNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				33F1A4E0198D0E11008E9EAE /* SteamGamesNewsTests.swift */,
+				33F1A4DE198D0E11008E9EAE /* Supporting Files */,
+			);
+			path = SteamGamesNewsTests;
+			sourceTree = "<group>";
+		};
+		33F1A4DE198D0E11008E9EAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33F1A4DF198D0E11008E9EAE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33F1A4C7198D0E10008E9EAE /* SteamGamesNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33F1A4E4198D0E11008E9EAE /* Build configuration list for PBXNativeTarget "SteamGamesNews" */;
+			buildPhases = (
+				33F1A4C4198D0E10008E9EAE /* Sources */,
+				33F1A4C5198D0E10008E9EAE /* Frameworks */,
+				33F1A4C6198D0E10008E9EAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SteamGamesNews;
+			productName = SteamGamesNews;
+			productReference = 33F1A4C8198D0E10008E9EAE /* SteamGamesNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33F1A4D9198D0E11008E9EAE /* SteamGamesNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33F1A4E7198D0E11008E9EAE /* Build configuration list for PBXNativeTarget "SteamGamesNewsTests" */;
+			buildPhases = (
+				33F1A4D6198D0E11008E9EAE /* Sources */,
+				33F1A4D7198D0E11008E9EAE /* Frameworks */,
+				33F1A4D8198D0E11008E9EAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33F1A4DC198D0E11008E9EAE /* PBXTargetDependency */,
+			);
+			name = SteamGamesNewsTests;
+			productName = SteamGamesNewsTests;
+			productReference = 33F1A4DA198D0E11008E9EAE /* SteamGamesNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33F1A4C0198D0E10008E9EAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Gem Barrett";
+				TargetAttributes = {
+					33F1A4C7198D0E10008E9EAE = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = VR4BX63LV6;
+					};
+					33F1A4D9198D0E11008E9EAE = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 33F1A4C7198D0E10008E9EAE;
+					};
+				};
+			};
+			buildConfigurationList = 33F1A4C3198D0E10008E9EAE /* Build configuration list for PBXProject "SteamGamesNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33F1A4BF198D0E10008E9EAE;
+			productRefGroup = 33F1A4C9198D0E10008E9EAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33F1A4C7198D0E10008E9EAE /* SteamGamesNews */,
+				33F1A4D9198D0E11008E9EAE /* SteamGamesNewsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33F1A4C6198D0E10008E9EAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B1C783198D47C800B02F43 /* Blank52.png in Resources */,
+				33F1A4D3198D0E10008E9EAE /* Main.storyboard in Resources */,
+				33F1A4D5198D0E10008E9EAE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33F1A4D8198D0E11008E9EAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33F1A4C4198D0E10008E9EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				335B2349198DB058008708B6 /* SteamObjectDetails.swift in Sources */,
+				33F1A4D0198D0E10008E9EAE /* SteamGamesNewsViewController.swift in Sources */,
+				335F9027198D82CC007412F9 /* SteamObject.swift in Sources */,
+				338854F4198D336A0081345C /* SteamAPIController.swift in Sources */,
+				33F1A4CE198D0E10008E9EAE /* AppDelegate.swift in Sources */,
+				335B2345198D9D30008708B6 /* SteamDetailsViewController.swift in Sources */,
+				335B234B198DB6A4008708B6 /* SteamObjectDetailsCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33F1A4D6198D0E11008E9EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33F1A4E1198D0E11008E9EAE /* SteamGamesNewsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33F1A4DC198D0E11008E9EAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33F1A4C7198D0E10008E9EAE /* SteamGamesNews */;
+			targetProxy = 33F1A4DB198D0E11008E9EAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33F1A4D1198D0E10008E9EAE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33F1A4D2198D0E10008E9EAE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33F1A4E2198D0E11008E9EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33F1A4E3198D0E11008E9EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33F1A4E5198D0E11008E9EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SteamGamesNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33F1A4E6198D0E11008E9EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SteamGamesNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		33F1A4E8198D0E11008E9EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SteamGamesNews.app/SteamGamesNews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SteamGamesNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		33F1A4E9198D0E11008E9EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SteamGamesNews.app/SteamGamesNews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SteamGamesNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33F1A4C3198D0E10008E9EAE /* Build configuration list for PBXProject "SteamGamesNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33F1A4E2198D0E11008E9EAE /* Debug */,
+				33F1A4E3198D0E11008E9EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33F1A4E4198D0E11008E9EAE /* Build configuration list for PBXNativeTarget "SteamGamesNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33F1A4E5198D0E11008E9EAE /* Debug */,
+				33F1A4E6198D0E11008E9EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33F1A4E7198D0E11008E9EAE /* Build configuration list for PBXNativeTarget "SteamGamesNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33F1A4E8198D0E11008E9EAE /* Debug */,
+				33F1A4E9198D0E11008E9EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33F1A4C0198D0E10008E9EAE /* Project object */;
+}
