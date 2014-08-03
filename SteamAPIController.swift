@@ -58,7 +58,7 @@ class SteamAPIController {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
-            let gameResults: NSArray = jsonResult["response"] as NSArray
+            let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
             self.delegate.didReceiveAPIResults(jsonResult)
             })
         
