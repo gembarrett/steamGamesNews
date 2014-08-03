@@ -39,28 +39,21 @@ class Game {
             // check for collection or track
             for result in allResults {
                 
-                let name = result["name"] as? String
+                let name = result["name"] as String
 
-                let appid = result["appid"] as? String
+                let appInt = result["appid"] as Int
+                var appid : String = "\(appInt)"
+                println(appid)
                 
-                var thumbnailImageURL = result["img_icon_url"] as? String
-                if (thumbnailImageURL == "") {
-                    var thumbnailImageURL = "https://raw.githubusercontent.com/jquave/Swift-Tutorial/7a38913130a18594cc6bdf56ad4e1b4efe59c58e/HelloWorld/Blank52.png"
-                }
-                else {
-                    var thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(thumbnailImageURL).jpg"
-                }
+                var thumbnailImageID = result["img_icon_url"] as String
+                var thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(thumbnailImageID).jpg"
                 
-                var largeImageURL = result["img_logo_url"] as? String
-                if (largeImageURL == "") {
-                    var largeImageURL = "https://raw.githubusercontent.com/jquave/Swift-Tutorial/7a38913130a18594cc6bdf56ad4e1b4efe59c58e/HelloWorld/Blank52.png"
-                }
-                else {
-                    var largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(largeImageURL).jpg"
-                }
+                var largeImageID = result["img_logo_url"] as String
+                var largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(largeImageID).jpg"
                 
+                println(largeImageURL)
                 
-                var newGame = Game(appid: appid!, name: name!, thumbnailImageURL: thumbnailImageURL!, largeImageURL: largeImageURL!)
+                var newGame = Game(appid: appid, name: name, thumbnailImageURL: thumbnailImageURL, largeImageURL: largeImageURL)
                 
                 games.append(newGame)
             }

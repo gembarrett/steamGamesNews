@@ -29,7 +29,7 @@ class SteamAPIController {
         
         // Now escape anything else that isn't URL-friendly
 //        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let urlPath = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=76561198073968915&include_appinfo=1&format=json"
+        let urlPath = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY&steamid=76561198073968915&include_appinfo=1&format=json"
         let url: NSURL = NSURL(string: urlPath)
         get (urlPath)
     }
@@ -59,6 +59,7 @@ class SteamAPIController {
                 println("JSON Error \(err!.localizedDescription)")
             }
             let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
+            
             self.delegate.didReceiveAPIResults(jsonResult)
             })
         

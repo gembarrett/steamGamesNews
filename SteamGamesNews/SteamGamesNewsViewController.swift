@@ -50,12 +50,18 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
     
     
     func didReceiveAPIResults(gameResults: NSDictionary) {
-        var resultsArr: NSArray = gameResults["games"] as NSArray
-        dispatch_async(dispatch_get_main_queue(), {
-            self.games = Game.gamesWithJSON(resultsArr)
-            self.appsTableView!.reloadData()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            })
+        
+        if let response = gameResults["response"] as? NSDictionary {
+            if let games = response["games"] as? NSArray {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.games = Game.gamesWithJSON(games)
+                    self.appsTableView!.reloadData()
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    })
+                
+            }
+        }
     }
     
     // how many rows in section
@@ -81,7 +87,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         
         // get image url for thumbnail
         let urlString = game.thumbnailImageURL
-        
+                
         // check image cache for the existing key
         var image = self.imageCache[urlString]
         
@@ -120,12 +126,12 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
 
-    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
-        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
-        UIView.animateWithDuration(0.25, animations: {
-            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
-            })
-    }
+//    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+//        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+//        UIView.animateWithDuration(0.25, animations: {
+//            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+//            })
+//    }
 
 
 }
