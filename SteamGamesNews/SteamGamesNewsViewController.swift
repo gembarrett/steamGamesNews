@@ -31,7 +31,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         // action the API calling function defined
-        api.searchItunesFor("76561198073968915")
+        api.getSteamGames("76561198073968915")
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,7 +69,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         return games.count
     }
     
-    // grab track name, artwork url and price for use in cell
+    // grab game name, small thumbnail and gameplay minutes for use in cell
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
 
         // create new instance of UITableViewCell using Subtitle cell style
@@ -81,7 +81,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         cell.imageView.image = UIImage(named: "Blank52")
         
         // get formatted price string for display in subtitle
-        let formattedPrice = game.appid
+        let formattedPrice = game.playingTime
         
         // go to background thread to get image for this item
         

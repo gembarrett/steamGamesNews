@@ -11,6 +11,5 @@ import Foundation
 import UIKit
 
 class TrackCell: UITableViewCell {
-    @IBOutlet weak var playIcon: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
 }

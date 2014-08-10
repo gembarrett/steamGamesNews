@@ -20,7 +20,7 @@ class SteamAPIController {
         self.delegate = delegate
     }
     
-    func searchItunesFor(searchTerm: String) {
+    func getSteamGames(searchTerm: String) {
         
         // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
 //        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
@@ -29,13 +29,13 @@ class SteamAPIController {
         
         // Now escape anything else that isn't URL-friendly
 //        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let urlPath = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY&steamid=76561198073968915&include_appinfo=1&format=json"
+        let urlPath = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=76561198073968915&include_appinfo=1&format=json"
         let url: NSURL = NSURL(string: urlPath)
         get (urlPath)
     }
     
     // get details
-    func lookupAlbum(appid: String) {
+    func lookupNews(appid: String) {
         get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=\(appid)&count=3&maxlength=300&format=json")
     }
     
@@ -46,8 +46,6 @@ class SteamAPIController {
         
         // creates connection task to send request
         let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            println("Task completed")
-            println(url)
             if(error) {
                 // If there is an error in the web request, print it to the console
                 println(error.localizedDescription)
@@ -58,7 +56,17 @@ class SteamAPIController {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
-            let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
+            
+            // if we're getting a list of games, create gameResults list
+            if (jsonResult["response"]) {
+                let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
+                println("just getting game results")
+            }
+            // but if we're getting a list of newsitems for a game, create newsResults list instead
+            else if (jsonResult["appnews"]) {
+                let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
+                println("just getting news results")
+            }
             
             self.delegate.didReceiveAPIResults(jsonResult)
             })
