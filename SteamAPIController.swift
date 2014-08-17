@@ -20,6 +20,10 @@ class SteamAPIController {
         self.delegate = delegate
     }
     
+    func getSteamID(vanityid: String) {
+        get ("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=STEAM-KEY-HERE&vanityurl=\(vanityid)")
+    }
+    
     func getSteamGames(steamid: String) {
         get ("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=\(steamid)&include_appinfo=1&format=json")
     }
