@@ -20,18 +20,8 @@ class SteamAPIController {
         self.delegate = delegate
     }
     
-    func getSteamGames(searchTerm: String) {
-        
-        // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
-//        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        
-        let steamID = 76561198073968915
-        
-        // Now escape anything else that isn't URL-friendly
-//        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let urlPath = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=76561198073968915&include_appinfo=1&format=json"
-        let url: NSURL = NSURL(string: urlPath)
-        get (urlPath)
+    func getSteamGames(steamid: String) {
+        get ("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=\(steamid)&include_appinfo=1&format=json")
     }
     
     // get details
@@ -60,12 +50,10 @@ class SteamAPIController {
             // if we're getting a list of games, create gameResults list
             if (jsonResult["response"]) {
                 let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
-                println("just getting game results")
             }
             // but if we're getting a list of newsitems for a game, create newsResults list instead
             else if (jsonResult["appnews"]) {
                 let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
-                println("just getting news results")
             }
             
             self.delegate.didReceiveAPIResults(jsonResult)

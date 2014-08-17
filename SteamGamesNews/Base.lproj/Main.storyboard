@@ -85,9 +85,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="84" width="360" height="21"/>
+                                    <rect key="frame" x="139" y="84" width="241" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-8i-tVh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="84" width="100" height="100"/>
+                                </variation>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a9Z-2g-5Ix">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -103,7 +109,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="63" y="11" width="329" height="21"/>
+                                                        <rect key="frame" x="20" y="11" width="372" height="21"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -124,33 +130,27 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-12" y="244" width="412" height="356"/>
+                                    <rect key="frame" x="0.0" y="198" width="405" height="356"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="vm6-tS-lH1" id="hT2-KW-8qg"/>
                                     <outlet property="delegate" destination="vm6-tS-lH1" id="rQs-wb-JpZ"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-8i-tVh">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="119" width="100" height="100"/>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RKJ-QD-Oh3"/>
-                                <exclude reference="a9Z-2g-5Ix"/>
                                 <exclude reference="wLb-8i-tVh"/>
+                                <exclude reference="a9Z-2g-5Ix"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="RKJ-QD-Oh3"/>
-                                <include reference="a9Z-2g-5Ix"/>
                                 <include reference="wLb-8i-tVh"/>
+                                <include reference="a9Z-2g-5Ix"/>
                             </mask>
                         </variation>
                     </view>

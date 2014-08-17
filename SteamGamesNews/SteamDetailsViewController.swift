@@ -31,10 +31,11 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game?.largeImageURL)))
         
         
-        // pull down tracks based on selected album
+        // pull down news items based on selected game
         if self.game? {
             api.lookupNews(self.game!.appid)
         }
+
     }
     
     
@@ -42,7 +43,6 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         if let response = newsResults["appnews"] as? NSDictionary {
             if let newsItems = response["newsitems"] as? NSArray {
-                println(newsItems)
                 dispatch_async(dispatch_get_main_queue(), {
                     self.news = News.newsWithJSON(self.news)
                     self.detailsTrackView!.reloadData()
@@ -63,8 +63,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         var cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as TrackCell
         
         var newsItem = news[indexPath.row]
-        cell.titleLabel.text = "Latest" + newsItem.title + "news"
-        
+        cell.titleLabel.text = newsItem.title
         return cell
     }
     

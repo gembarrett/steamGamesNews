@@ -80,8 +80,8 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         cell.textLabel.text = game.name
         cell.imageView.image = UIImage(named: "Blank52")
         
-        // get formatted price string for display in subtitle
-        let formattedPrice = game.playingTime
+        // get gameplay mins for display in subtitle
+        let gameplayMins = game.playingTime
         
         // go to background thread to get image for this item
         
@@ -121,17 +121,10 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
             })
         }
         
-        cell.detailTextLabel.text = formattedPrice
+        cell.detailTextLabel.text = gameplayMins
         
         return cell
     }
-
-//    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
-//        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
-//        UIView.animateWithDuration(0.25, animations: {
-//            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
-//            })
-//    }
 
 
 }
