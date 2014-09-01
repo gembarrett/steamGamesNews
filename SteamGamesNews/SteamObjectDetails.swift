@@ -9,34 +9,27 @@
 import Foundation
 
 class News {
-    var title: String
-    var url: String
+    let title: String
+    let url: String
     
     init(title: String, url: String) {
         self.title = title
         self.url = url
     }
     
-    class func newsWithJSON(allResults: NSArray) -> [News] {
-        var newsItems = [News]()
+    class func newsWithJSON(newsResults: NSArray) -> [News] {
+        var news = [News]()
         
-        if allResults.count > 0 {
-            for detailsInfo in allResults {
-                var newsTitle = detailsInfo["title"] as? String
-                var newsurl = detailsInfo["url"] as? String
+        if newsResults.count > 0 {
+            for thisNews in newsResults {
+                let newsTitle = thisNews["title"] as String
+                let newsurl = thisNews["url"] as String
+                
+                let newsItem = News(title: newsTitle, url: newsurl)
                         
-                if (newsTitle == nil) {
-                    newsTitle = "Unknown"
-                }
-                else if (newsurl == nil) {
-                    newsurl = ""
-                }
-                        
-                var newsItem = News(title: newsTitle!, url: newsurl!)
-                        
-                newsItems.append(newsItem)
+                news.append(newsItem)
             }
         }
-        return newsItems
+        return news
     }
 }

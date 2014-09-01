@@ -13,7 +13,7 @@ import QuartzCore
 class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SteamAPIControllerProtocol {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var albumCover: UIImageView!
+    @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var detailsTrackView: UITableView!
 
     var game: Game?
@@ -28,7 +28,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         // load in the info being passed through for selected steam object
         titleLabel.text = self.game?.name
-        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)))
+        gameImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)))
         
         
         // pull down news items based on selected game
@@ -42,13 +42,12 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func didReceiveAPIResults(newsResults: NSDictionary) {
         
         if let response = newsResults["appnews"] as? NSDictionary {
-            if let newsItems = response["newsitems"] as? NSArray {
+            if let news = response["newsitems"] as? NSArray {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.news = News.newsWithJSON(self.news)
+                    self.news = News.newsWithJSON(news)
                     self.detailsTrackView!.reloadData()
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
-                
             }
         }
     }
@@ -60,7 +59,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as TrackCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell") as NewsItemCell
         
         var newsItem = news[indexPath.row]
         cell.titleLabel.text = newsItem.title

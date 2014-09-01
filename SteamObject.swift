@@ -24,27 +24,27 @@ class Game {
         self.playingTime = playingTime
     }
     
-    class func gamesWithJSON(allResults: NSArray) -> [Game] {
+    class func gamesWithJSON(gameResults: NSArray) -> [Game] {
         // empty array of Steam Objects to append to
         var games = [Game]()
         
         // store results in table data array
-        if allResults.count > 0 {
+        if gameResults.count > 0 {
             
-            // check for collection or track
-            for result in allResults {
+            // check for gameResults or track
+            for thisGame in gameResults {
                 
-                let name = result["name"] as String
+                let name = thisGame["name"] as String
 
-                let appInt = result["appid"] as Int
+                let appInt = thisGame["appid"] as Int
                 let appid : String = "\(appInt)"
                 
-                let playingTime = result["playtime_forever"] as Int
+                let playingTime = thisGame["playtime_forever"] as Int
                 
-                let thumbnailImageID = result["img_icon_url"] as String
+                let thumbnailImageID = thisGame["img_icon_url"] as String
                 let thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(thumbnailImageID).jpg"
                 
-                let largeImageID = result["img_logo_url"] as String
+                let largeImageID = thisGame["img_logo_url"] as String
                 let largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(largeImageID).jpg"
                                 
                 let newGame = Game(appid: appid, name: name, thumbnailImageURL: thumbnailImageURL, largeImageURL: largeImageURL, playingTime: playingTime)

@@ -30,7 +30,7 @@ class SteamAPIController {
     
     // get details
     func lookupNews(appid: String) {
-        get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=\(appid)&count=3&maxlength=300&format=json")
+        get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=\(appid)&count=3&maxlength=150&format=json")
     }
     
     func get(path: String) {
@@ -46,7 +46,7 @@ class SteamAPIController {
             }
             var err: NSError?
             var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-            if((err?) != nil) {
+            if((err) != nil) {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
@@ -58,6 +58,7 @@ class SteamAPIController {
             // but if we're getting a list of newsitems for a game, create newsResults list instead
             else if ((jsonResult["appnews"]) != nil) {
                 let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
+//                let newsResults: NSArray = appnews["newsitems"] as NSArray
             }
             
             self.delegate.didReceiveAPIResults(jsonResult)

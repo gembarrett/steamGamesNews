@@ -10,6 +10,6 @@ import Foundation
 
 import UIKit
 
-class TrackCell: UITableViewCell {
+class NewsItemCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 }
