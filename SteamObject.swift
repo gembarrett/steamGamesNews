@@ -9,13 +9,6 @@
 import Foundation
 
 class Game {
-//    var title: String
-//    var price: String
-//    var thumbnailImageURL: String
-//    var largeImageURL: String
-//    var itemURL: String
-//    var artistURL: String
-//    var collectionId: Int
     
     var appid: String
     var name: String
@@ -41,19 +34,15 @@ class Game {
             // check for collection or track
             for result in allResults {
                 
-                let name = result["name"] as String
+                var name = result["name"] as String
 
-                let appInt = result["appid"] as Int
-                var appid : String = "\(appInt)"
+                var appid : String = "\result['appid']"
                 
-                let playingInt = result["playtime_forever"] as Int
-                var playingTime : String = "\(playingInt) mins"
+                var playingTime : String = "\result['playtime_forever'] mins"
                 
-                var thumbnailImageID = result["img_icon_url"] as String
-                var thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(thumbnailImageID).jpg"
+                var thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\result['img_icon_url'].jpg"
                 
-                var largeImageID = result["img_logo_url"] as String
-                var largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(largeImageID).jpg"
+                var largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\result['img_logo_url'].jpg"
                                 
                 var newGame = Game(appid: appid, name: name, thumbnailImageURL: thumbnailImageURL, largeImageURL: largeImageURL, playingTime: playingTime)
                 
