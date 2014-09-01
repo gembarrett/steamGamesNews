@@ -20,12 +20,12 @@ class SteamAPIController {
         self.delegate = delegate
     }
     
-    func getSteamID(vanityid: String) {
-        get ("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=STEAM-KEY-HERE&vanityurl=\(vanityid)")
+    func getSteamID(steamkey: String, vanityid: String) {
+        get ("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=\(steamkey)&vanityurl=\(vanityid)")
     }
     
-    func getSteamGames(steamid: String) {
-        get ("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM-KEY-HERE&steamid=\(steamid)&include_appinfo=1&format=json")
+    func getSteamGames(steamkey: String, steamid: String) {
+        get ("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=\(steamkey)&steamid=\(steamid)&include_appinfo=1&format=json")
     }
     
     // get details
@@ -40,23 +40,23 @@ class SteamAPIController {
         
         // creates connection task to send request
         let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            if(error) {
+            if((error) != nil) {
                 // If there is an error in the web request, print it to the console
                 println(error.localizedDescription)
             }
             var err: NSError?
             var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-            if(err?) {
+            if((err?) != nil) {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
             
             // if we're getting a list of games, create gameResults list
-            if (jsonResult["response"]) {
+            if ((jsonResult["response"]) != nil) {
                 let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
             }
             // but if we're getting a list of newsitems for a game, create newsResults list instead
-            else if (jsonResult["appnews"]) {
+            else if ((jsonResult["appnews"]) != nil) {
                 let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
             }
             

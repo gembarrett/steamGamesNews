@@ -25,10 +25,10 @@ class News {
                 var newsTitle = detailsInfo["title"] as? String
                 var newsurl = detailsInfo["url"] as? String
                         
-                if (!newsTitle) {
+                if (newsTitle == nil) {
                     newsTitle = "Unknown"
                 }
-                else if (!newsurl) {
+                else if (newsurl == nil) {
                     newsurl = ""
                 }
                         

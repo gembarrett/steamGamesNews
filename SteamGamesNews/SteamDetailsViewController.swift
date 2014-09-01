@@ -20,7 +20,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var news = [News]()
     lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -28,11 +28,11 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         // load in the info being passed through for selected steam object
         titleLabel.text = self.game?.name
-        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game?.largeImageURL)))
+        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)))
         
         
         // pull down news items based on selected game
-        if self.game? {
+        if (self.game? != nil) {
             api.lookupNews(self.game!.appid)
         }
 

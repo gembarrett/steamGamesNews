@@ -18,6 +18,10 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
     
     // create empty array containing only steam objects (list of games, news items, etc)
     var games = [Game]()
+    
+    // create variables for steam key and id
+    let APIkey = "STEAM-KEY-HERE"
+    var userID = "76561198073968915"
 
     // api is a lazy variable as only created when first used
     lazy var api : SteamAPIController = SteamAPIController(delegate: self)
@@ -29,9 +33,9 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         // network activity indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
+                
         // action the API calling function defined
-        api.getSteamGames("76561198073968915")
+        api.getSteamGames(APIkey, steamid: userID)
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +85,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         cell.imageView.image = UIImage(named: "Blank52")
         
         // get gameplay mins for display in subtitle
-        let gameplayMins = game.playingTime
+        let gameplayMins : String = "\(game.playingTime) mins"
         
         // go to background thread to get image for this item
         
@@ -91,14 +95,14 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         // check image cache for the existing key
         var image = self.imageCache[urlString]
         
-        if( !image? ) {
+        if(image == nil) {
             // If the image does not exist, we need to download it
             var imgURL: NSURL = NSURL(string: urlString)
             
             // Download an NSData representation of the image at the URL
             let request: NSURLRequest = NSURLRequest(URL: imgURL)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-                if !error? {
+                if error == nil {
                     image = UIImage(data: data)
                     
                     // Store the image in to our cache
