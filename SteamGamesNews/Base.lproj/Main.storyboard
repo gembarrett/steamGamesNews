@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
-        <!--Steam Games News View Controller-->
+        <!--Games-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SteamGamesNewsViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xgc-dO-x84"/>
+                    <navigationItem key="navigationItem" title="Games" id="XnU-PR-glM"/>
                     <connections>
                         <outlet property="appsTableView" destination="dFJ-rg-khA" id="RNo-vy-gi7"/>
                     </connections>
@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="588" y="139"/>
         </scene>
-        <!--Steam Details View Controller-->
+        <!--Latest news-->
         <scene sceneID="Poz-iS-yTw">
             <objects>
                 <viewController storyboardIdentifier="SteamDetailsViewController" id="vm6-tS-lH1" customClass="SteamDetailsViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,6 +158,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Latest news" id="Toz-zo-ko6"/>
                     <connections>
                         <outlet property="detailsTrackView" destination="a9Z-2g-5Ix" id="DXd-vS-0pL"/>
                         <outlet property="gameImage" destination="wLb-8i-tVh" id="OmZ-B3-dEg"/>
@@ -168,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="1303.5" y="139.5"/>
         </scene>
-        <!--Steam Article View Controller-->
+        <!--Article-->
         <scene sceneID="ehv-XH-YUK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4P-xl-kOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,6 +189,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Article" id="ENQ-xk-uZw"/>
                     <connections>
                         <outlet property="newsItemView" destination="iX1-lP-GAM" id="Yao-TK-bIa"/>
                     </connections>
