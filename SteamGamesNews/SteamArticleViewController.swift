@@ -13,13 +13,15 @@ class SteamArticleViewController: UIViewController {
 
     @IBOutlet weak var newsItemView: UIWebView!
     
-//    var newsArticle = News
+    var selectedNews : String = ""
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        let requestURL = NSURL(string:newsArticle.url)
-//        let request = NSURLRequest(URL: requestURL)
-//        newsItemView.loadRequest(request)
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let thisURL = selectedNews
+        let requestURL = NSURL(string: selectedNews)
+        let request = NSURLRequest(URL: requestURL)
+        newsItemView.loadRequest(request)
+    }
 
 }

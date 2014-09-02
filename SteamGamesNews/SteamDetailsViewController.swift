@@ -65,14 +65,15 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-//        // cast the steam object member to news web view controller
-//        var steamArticleViewController: SteamArticleViewController = segue.destinationViewController as SteamArticleViewController
-//        // work out which news object is selected at the moment the segue happens
-//        var newsIndex = detailsTrackView!.indexPathForSelectedRow().row
-//        var selectedNews = self.news[newsIndex].url
-//        steamArticleViewController.newsArticle = selectedNews
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+        // cast the steam object member to news web view controller
+        var steamArticleViewController: SteamArticleViewController = segue.destinationViewController as SteamArticleViewController
+        // work out which news object is selected at the moment the segue happens
+        var newsIndex = detailsTrackView!.indexPathForSelectedRow().row
+        var selectedNews = self.news[newsIndex].url
+        println(selectedNews)
+        steamArticleViewController.selectedNews = selectedNews
+    }
 
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath:NSIndexPath!) {

@@ -172,7 +172,6 @@
         <!--Article-->
         <scene sceneID="ehv-XH-YUK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r4P-xl-kOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SteamArticleViewController" id="IiM-Bb-Y8Z" customClass="SteamArticleViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k8y-0I-sFL"/>
@@ -194,6 +193,7 @@
                         <outlet property="newsItemView" destination="iX1-lP-GAM" id="Yao-TK-bIa"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4P-xl-kOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2032" y="140"/>
         </scene>
