@@ -126,6 +126,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="PSr-8f-Ddu" id="eLW-tc-hVF"/>
+                                            <segue destination="IiM-Bb-Y8Z" kind="show" id="GPw-1E-g0X"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -166,6 +167,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sys-Dc-8lA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1303.5" y="139.5"/>
+        </scene>
+        <!--Steam Article View Controller-->
+        <scene sceneID="ehv-XH-YUK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4P-xl-kOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SteamArticleViewController" id="IiM-Bb-Y8Z" customClass="SteamArticleViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8y-0I-sFL"/>
+                        <viewControllerLayoutGuide type="bottom" id="8em-NF-aid"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Q6-NW-uvI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iX1-lP-GAM">
+                                <rect key="frame" x="-34" y="-51" width="634" height="651"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="newsItemView" destination="iX1-lP-GAM" id="Yao-TK-bIa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2032" y="140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nxk-kN-pNg">

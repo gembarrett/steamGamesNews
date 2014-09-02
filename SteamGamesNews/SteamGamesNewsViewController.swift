@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SteamAPIControllerProtocol {
     

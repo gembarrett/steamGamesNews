@@ -30,7 +30,7 @@ class SteamAPIController {
     
     // get details
     func lookupNews(appid: String) {
-        get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=\(appid)&count=3&maxlength=150&format=json")
+        get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=\(appid)&count=10&maxlength=150&format=json")
     }
     
     func get(path: String) {
