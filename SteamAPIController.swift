@@ -62,7 +62,7 @@ class SteamAPIController {
             }
             
             self.delegate.didReceiveAPIResults(jsonResult)
-            })
+        })
         
         // actually begin the request
         task.resume()

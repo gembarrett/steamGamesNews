@@ -8,11 +8,8 @@
 
 import UIKit
 
-class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SteamAPIControllerProtocol {
+class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerProtocol {
     
-    // connect table view in storyboard to variable appsTableView
-    @IBOutlet var appsTableView : UITableView?
-
     let kCellIdentifier: String = "ResultCell"
     
     // create empty array containing only steam objects (list of games, news items, etc)
@@ -32,7 +29,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         // network activity indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-                
+        
         // action the API calling function defined
         api.getSteamGames(APIkey, steamid: userID)
     }
@@ -46,7 +43,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
         // cast the steam object member to details view controller
         var steamDetailsViewController: SteamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
         // work out which steam object is selected at the moment the segue happens
-        var gameIndex = appsTableView!.indexPathForSelectedRow().row
+        var gameIndex = self.tableView.indexPathForSelectedRow().row
         var selectedGame = self.games[gameIndex]
         steamDetailsViewController.game = selectedGame
     }
@@ -59,7 +56,7 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.games = Game.gamesWithJSON(games)
-                    self.appsTableView!.reloadData()
+                    self.tableView.reloadData()
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
                 
@@ -68,23 +65,24 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     // how many rows in section
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
     
     // grab game name, small thumbnail and gameplay minutes for use in cell
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
 
-        // create new instance of UITableViewCell using Subtitle cell style
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        // create new instance of SteamGameTableViewCell
+        let cell: SteamGameTableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as SteamGameTableViewCell
         
         // check to make sure this item exists
         let game = self.games[indexPath.row]
-        cell.textLabel.text = game.name
-        cell.imageView.image = UIImage(named: "Blank52")
+        cell.gameName.text = game.name
+        cell.gameImage.image = UIImage(named: "Blank52")
         
         // get gameplay mins for display in subtitle
         let gameplayMins : String = "\(game.playingTime) mins"
+        cell.timePlayed.text = gameplayMins
         
         // go to background thread to get image for this item
         
@@ -106,27 +104,26 @@ class SteamGamesNewsViewController: UIViewController, UITableViewDataSource, UIT
                     
                     // Store the image in to our cache
                     self.imageCache[urlString] = image
-                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                        cellToUpdate.imageView.image = image
-                    }
+                    self.updateGameImage(image, indexPath)
                 }
                 else {
                     println("Error: \(error.localizedDescription)")
                 }
                 })
             
-        }
-        else {
+        } else {
             dispatch_async(dispatch_get_main_queue(), {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    cellToUpdate.imageView.image = image
-                }
+                self.updateGameImage(image, indexPath)
             })
         }
         
-        cell.detailTextLabel.text = gameplayMins
-        
         return cell
+    }
+    
+    func updateGameImage(image: UIImage?, _ indexPath: NSIndexPath) {
+        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as? SteamGameTableViewCell {
+            cellToUpdate.gameImage.image = image
+        }
     }
 
 
