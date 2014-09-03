@@ -105,9 +105,6 @@ class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerPro
                     // Store the image in to our cache
                     self.imageCache[urlString] = image
                     self.updateGameImage(image, indexPath)
-                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as? SteamGameTableViewCell {
-                        cellToUpdate.gameImage.image = image
-                    }
                 }
                 else {
                     println("Error: \(error.localizedDescription)")
