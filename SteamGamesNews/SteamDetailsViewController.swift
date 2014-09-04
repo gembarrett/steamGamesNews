@@ -50,8 +50,6 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
-
-
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return news.count

@@ -14,6 +14,7 @@
 		335F9027198D82CC007412F9 /* SteamObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F9026198D82CC007412F9 /* SteamObject.swift */; };
 		338854F4198D336A0081345C /* SteamAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338854F3198D336A0081345C /* SteamAPIController.swift */; };
 		339E0E1E19B5BBB400DC11CD /* SteamArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E0E1D19B5BBB400DC11CD /* SteamArticleViewController.swift */; };
+		339E0E2119B744DE00DC11CD /* SteamGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */; };
 		33B1C783198D47C800B02F43 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1C782198D47C800B02F43 /* Blank52.png */; };
 		33F1A4CE198D0E10008E9EAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */; };
 		33F1A4D0198D0E10008E9EAE /* SteamGamesNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */; };
@@ -40,6 +41,7 @@
 		335F9026198D82CC007412F9 /* SteamObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamObject.swift; path = ../SteamObject.swift; sourceTree = "<group>"; };
 		338854F3198D336A0081345C /* SteamAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamAPIController.swift; path = ../SteamAPIController.swift; sourceTree = "<group>"; };
 		339E0E1D19B5BBB400DC11CD /* SteamArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamArticleViewController.swift; sourceTree = "<group>"; };
+		339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGameCollectionViewCell.swift; sourceTree = "<group>"; };
 		33B1C782198D47C800B02F43 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = SOURCE_ROOT; };
 		33F1A4C8198D0E10008E9EAE /* SteamGamesNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamGamesNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F1A4CC198D0E10008E9EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				335F9026198D82CC007412F9 /* SteamObject.swift */,
 				33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */,
 				33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */,
+				339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */,
 				17B9F6EA19B6926E00CB3D0C /* SteamGameTableViewCell.swift */,
 				33F1A4D1198D0E10008E9EAE /* Main.storyboard */,
 				339E0E1D19B5BBB400DC11CD /* SteamArticleViewController.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				339E0E1E19B5BBB400DC11CD /* SteamArticleViewController.swift in Sources */,
+				339E0E2119B744DE00DC11CD /* SteamGameCollectionViewCell.swift in Sources */,
 				17B9F6EB19B6926E00CB3D0C /* SteamGameTableViewCell.swift in Sources */,
 				335B2349198DB058008708B6 /* SteamObjectDetails.swift in Sources */,
 				33F1A4D0198D0E10008E9EAE /* SteamGamesNewsViewController.swift in Sources */,

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerProtocol {
+class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControllerProtocol {
     
-    let kCellIdentifier: String = "ResultCell"
+    let kCellIdentifier: String = "GameCell"
     
     // create empty array containing only steam objects (list of games, news items, etc)
     var games = [Game]()
     
     // create variables for steam key and id
-    let APIkey = "STEAM-KEY-HERE"
+    let APIkey = "566FAD0EB171FDF6592D22A65B23A655"
     var userID = "76561198073968915"
 
     // api is a lazy variable as only created when first used
@@ -43,7 +43,7 @@ class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerPro
         // cast the steam object member to details view controller
         var steamDetailsViewController: SteamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
         // work out which steam object is selected at the moment the segue happens
-        var gameIndex = self.tableView.indexPathForSelectedRow().row
+        var gameIndex = self.collectionView.indexPathsForSelectedItems()[0].item
         var selectedGame = self.games[gameIndex]
         steamDetailsViewController.game = selectedGame
     }
@@ -56,7 +56,7 @@ class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerPro
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.games = Game.gamesWithJSON(games)
-                    self.tableView.reloadData()
+                    self.collectionView.reloadData()
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
                 
@@ -64,44 +64,40 @@ class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerPro
         }
     }
     
-    // how many rows in section
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
         return games.count
     }
     
-    // grab game name, small thumbnail and gameplay minutes for use in cell
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+        let cell: SteamGameCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as SteamGameCollectionViewCell
 
-        // create new instance of SteamGameTableViewCell
-        let cell: SteamGameTableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as SteamGameTableViewCell
-        
         // check to make sure this item exists
-        let game = self.games[indexPath.row]
-        cell.gameName.text = game.name
-        cell.gameImage.image = UIImage(named: "Blank52")
-        
+        let game = self.games[indexPath.item]
+//        cell.gameName.text = game.name
+        cell.gameLogo.image = UIImage(named: "Blank52")
+
         // get gameplay mins for display in subtitle
-        let gameplayMins : String = "\(game.playingTime) mins"
-        cell.timePlayed.text = gameplayMins
-        
+//        let gameplayMins : String = "\(game.playingTime) mins"
+//        cell.timePlayed.text = gameplayMins
+
         // go to background thread to get image for this item
-        
+
         // get image url for thumbnail
         let urlString = game.thumbnailImageURL
-                
+
         // check image cache for the existing key
         var image = self.imageCache[urlString]
-        
+
         if(image == nil) {
             // If the image does not exist, we need to download it
             var imgURL: NSURL = NSURL(string: urlString)
-            
+
             // Download an NSData representation of the image at the URL
             let request: NSURLRequest = NSURLRequest(URL: imgURL)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
                 if error == nil {
                     image = UIImage(data: data)
-                    
+
                     // Store the image in to our cache
                     self.imageCache[urlString] = image
                     self.updateGameImage(image, indexPath)
@@ -120,9 +116,65 @@ class SteamGamesNewsViewController: UITableViewController, SteamAPIControllerPro
         return cell
     }
     
+    // how many rows in section
+//    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+//        return games.count
+//    }
+//    
+//    // grab game name, small thumbnail and gameplay minutes for use in cell
+//    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+//
+//        // create new instance of SteamGameTableViewCell
+//        let cell: SteamGameTableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as SteamGameTableViewCell
+//        
+//        // check to make sure this item exists
+//        let game = self.games[indexPath.row]
+//        cell.gameName.text = game.name
+//        cell.gameImage.image = UIImage(named: "Blank52")
+//        
+//        // get gameplay mins for display in subtitle
+//        let gameplayMins : String = "\(game.playingTime) mins"
+//        cell.timePlayed.text = gameplayMins
+//        
+//        // go to background thread to get image for this item
+//        
+//        // get image url for thumbnail
+//        let urlString = game.thumbnailImageURL
+//                
+//        // check image cache for the existing key
+//        var image = self.imageCache[urlString]
+//        
+//        if(image == nil) {
+//            // If the image does not exist, we need to download it
+//            var imgURL: NSURL = NSURL(string: urlString)
+//            
+//            // Download an NSData representation of the image at the URL
+//            let request: NSURLRequest = NSURLRequest(URL: imgURL)
+//            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+//                if error == nil {
+//                    image = UIImage(data: data)
+//                    
+//                    // Store the image in to our cache
+//                    self.imageCache[urlString] = image
+//                    self.updateGameImage(image, indexPath)
+//                }
+//                else {
+//                    println("Error: \(error.localizedDescription)")
+//                }
+//                })
+//            
+//        } else {
+//            dispatch_async(dispatch_get_main_queue(), {
+//                self.updateGameImage(image, indexPath)
+//            })
+//        }
+//        
+//        return cell
+//    }
+    
     func updateGameImage(image: UIImage?, _ indexPath: NSIndexPath) {
-        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as? SteamGameTableViewCell {
-            cellToUpdate.gameImage.image = image
+        if let cellToUpdate = collectionView.cellForItemAtIndexPath(indexPath) as? SteamGameCollectionViewCell {
+            cellToUpdate.gameLogo.image = image
         }
     }
 
