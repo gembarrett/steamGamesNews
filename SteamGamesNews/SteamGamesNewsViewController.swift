@@ -15,10 +15,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     // create empty array containing only steam objects (list of games, news items, etc)
     var games = [Game]()
     
-    // create variables for steam key and id
-    let APIkey = "STEAM-KEY-HERE"
-    var userID = "76561198073968915"
-
     // api is a lazy variable as only created when first used
     lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
@@ -75,11 +71,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         let game = self.games[indexPath.item]
         //        cell.gameName.text = game.name
         cell.gameLogo.image = UIImage(named: "Blank52")
-        
-        // get gameplay mins for display in subtitle
-        //        let gameplayMins : String = "\(game.playingTime) mins"
-        //        cell.timePlayed.text = gameplayMins
-        
+                
         // go to background thread to get image for this item
         
         // get image url for thumbnail

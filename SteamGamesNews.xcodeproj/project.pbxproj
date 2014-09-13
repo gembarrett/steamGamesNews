@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17B9F6EB19B6926E00CB3D0C /* SteamGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9F6EA19B6926E00CB3D0C /* SteamGameTableViewCell.swift */; };
+		3324DB9019C48B9600C0F647 /* SteamUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3324DB8F19C48B9600C0F647 /* SteamUserViewController.swift */; };
 		335B2345198D9D30008708B6 /* SteamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B2344198D9D30008708B6 /* SteamDetailsViewController.swift */; };
 		335B2349198DB058008708B6 /* SteamObjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B2348198DB058008708B6 /* SteamObjectDetails.swift */; };
 		335B234B198DB6A4008708B6 /* SteamObjectDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B234A198DB6A4008708B6 /* SteamObjectDetailsCell.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		17B9F6EA19B6926E00CB3D0C /* SteamGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGameTableViewCell.swift; sourceTree = "<group>"; };
+		3324DB8F19C48B9600C0F647 /* SteamUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamUserViewController.swift; sourceTree = "<group>"; };
 		335B2344198D9D30008708B6 /* SteamDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamDetailsViewController.swift; path = SteamGamesNews/SteamDetailsViewController.swift; sourceTree = "<group>"; };
 		335B2348198DB058008708B6 /* SteamObjectDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamObjectDetails.swift; path = SteamGamesNews/SteamObjectDetails.swift; sourceTree = "<group>"; };
 		335B234A198DB6A4008708B6 /* SteamObjectDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamObjectDetailsCell.swift; path = SteamGamesNews/SteamObjectDetailsCell.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				335F9026198D82CC007412F9 /* SteamObject.swift */,
 				33F1A4CD198D0E10008E9EAE /* AppDelegate.swift */,
 				33F1A4CF198D0E10008E9EAE /* SteamGamesNewsViewController.swift */,
+				3324DB8F19C48B9600C0F647 /* SteamUserViewController.swift */,
 				339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */,
 				17B9F6EA19B6926E00CB3D0C /* SteamGameTableViewCell.swift */,
 				33F1A4D1198D0E10008E9EAE /* Main.storyboard */,
@@ -248,6 +251,7 @@
 			files = (
 				339E0E1E19B5BBB400DC11CD /* SteamArticleViewController.swift in Sources */,
 				339E0E2119B744DE00DC11CD /* SteamGameCollectionViewCell.swift in Sources */,
+				3324DB9019C48B9600C0F647 /* SteamUserViewController.swift in Sources */,
 				17B9F6EB19B6926E00CB3D0C /* SteamGameTableViewCell.swift in Sources */,
 				335B2349198DB058008708B6 /* SteamObjectDetails.swift in Sources */,
 				33F1A4D0198D0E10008E9EAE /* SteamGamesNewsViewController.swift in Sources */,

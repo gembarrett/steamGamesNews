@@ -300,12 +300,80 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mjM-7y-MjB" kind="relationship" relationship="rootViewController" id="XMf-Nr-hkQ"/>
+                        <segue destination="h3J-cv-4z7" kind="relationship" relationship="rootViewController" id="R2W-6a-ZLJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9y-rf-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="140"/>
+            <point key="canvasLocation" x="-1702.5" y="140"/>
+        </scene>
+        <!--Steam User View Controller-->
+        <scene sceneID="pbX-l2-Zk8">
+            <objects>
+                <viewController id="h3J-cv-4z7" customClass="SteamUserViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FcJ-Y3-cTK"/>
+                        <viewControllerLayoutGuide type="bottom" id="GbQ-em-xRb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X2x-dH-IMe">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioi-2s-PY1">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="81" y="151" width="238" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Steam vanity username below" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-WD-Zxg">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="88" width="315" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcY-FA-bCw">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Go to games list">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="139" y="210" width="113" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveVanityID:" destination="h3J-cv-4z7" eventType="touchUpInside" id="FcM-Td-Sph"/>
+                                    <segue destination="mjM-7y-MjB" kind="show" id="eV3-Dj-bNV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ioi-2s-PY1"/>
+                                <exclude reference="YMd-WD-Zxg"/>
+                                <exclude reference="LcY-FA-bCw"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ioi-2s-PY1"/>
+                                <include reference="YMd-WD-Zxg"/>
+                                <include reference="LcY-FA-bCw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="R88-XY-3yA"/>
+                    <connections>
+                        <outlet property="inputUsername" destination="ioi-2s-PY1" id="A44-iy-vU4"/>
+                        <outlet property="submitUsername" destination="LcY-FA-bCw" id="mvf-vA-mj6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HME-zv-qyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-783" y="140"/>
         </scene>
     </scenes>
 </document>
