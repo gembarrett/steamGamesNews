@@ -51,11 +51,11 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell") as NewsItemCell
         
         var newsItem = news[indexPath.row]
@@ -63,15 +63,15 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-        // cast the steam object member to news web view controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // send steam object to news web view controller
         var steamArticleViewController: SteamArticleViewController = segue.destinationViewController as SteamArticleViewController
-        // work out which news object is selected at the moment the segue happens
-        var newsIndex = detailsTrackView!.indexPathForSelectedRow().row
-        var selectedNews = self.news[newsIndex].url
-        println(selectedNews)
+        // work out which object is selected
+        var newsIndex = detailsTrackView!.indexPathForSelectedRow()?.row
+        var selectedNews = self.news[newsIndex!].url
         steamArticleViewController.selectedNews = selectedNews
     }
+    
 
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath:NSIndexPath!) {

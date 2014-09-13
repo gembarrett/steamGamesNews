@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kQl-d3-RWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kQl-d3-RWb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -10,6 +11,7 @@
             <objects>
                 <collectionViewController id="mjM-7y-MjB" customClass="SteamGamesNewsViewController" customModule="SteamGamesNews" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bQe-Vx-BHy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qmu-A9-2Ju">
@@ -196,15 +198,15 @@
                                 <exclude reference="RKJ-QD-Oh3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ylc-Jn-a6S"/>
+                                <exclude reference="lFn-Fz-z32"/>
+                                <exclude reference="z6m-4a-fPn"/>
                                 <exclude reference="FDL-AV-ZPd"/>
                                 <exclude reference="Mbw-qg-TOj"/>
                                 <exclude reference="wSG-zN-2e3"/>
                                 <exclude reference="BIo-Tk-BD7"/>
                                 <exclude reference="hpq-9n-w5n"/>
                                 <exclude reference="xTr-l9-Lqu"/>
-                                <exclude reference="lFn-Fz-z32"/>
-                                <exclude reference="z6m-4a-fPn"/>
-                                <exclude reference="ylc-Jn-a6S"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -214,15 +216,15 @@
                                 <include reference="RKJ-QD-Oh3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ylc-Jn-a6S"/>
+                                <include reference="lFn-Fz-z32"/>
+                                <include reference="z6m-4a-fPn"/>
                                 <include reference="FDL-AV-ZPd"/>
                                 <include reference="Mbw-qg-TOj"/>
                                 <include reference="wSG-zN-2e3"/>
                                 <include reference="BIo-Tk-BD7"/>
                                 <include reference="hpq-9n-w5n"/>
                                 <include reference="xTr-l9-Lqu"/>
-                                <include reference="lFn-Fz-z32"/>
-                                <include reference="z6m-4a-fPn"/>
-                                <include reference="ylc-Jn-a6S"/>
                             </mask>
                         </variation>
                     </view>
@@ -249,7 +251,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iX1-lP-GAM">
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iX1-lP-GAM">
                                 <rect key="frame" x="-34" y="-51" width="634" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
