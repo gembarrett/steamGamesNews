@@ -124,12 +124,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="PSr-8f-Ddu" secondAttribute="trailing" constant="335" id="64Q-9f-PXX">
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PSr-8f-Ddu" secondAttribute="trailing" constant="335" id="64Q-9f-PXX">
                                                     <variation key="widthClass=compact" constant="20"/>
                                                 </constraint>
                                                 <constraint firstItem="PSr-8f-Ddu" firstAttribute="top" secondItem="PMg-SG-f9D" secondAttribute="topMargin" constant="3" id="Jrn-7I-16U"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="PSr-8f-Ddu" secondAttribute="bottom" constant="3.5" id="cdc-Zd-iak"/>
-                                                <constraint firstItem="PSr-8f-Ddu" firstAttribute="leading" secondItem="PMg-SG-f9D" secondAttribute="leadingMargin" constant="12" id="ht0-nv-HRZ"/>
+                                                <constraint firstItem="PSr-8f-Ddu" firstAttribute="leading" secondItem="PMg-SG-f9D" secondAttribute="leading" constant="12" id="ht0-nv-HRZ"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -177,10 +177,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="a9Z-2g-5Ix" secondAttribute="trailing" constant="-16" id="BIo-Tk-BD7"/>
-                            <constraint firstItem="wLb-8i-tVh" firstAttribute="trailing" secondItem="Sdb-Vs-iiR" secondAttribute="trailingMargin" id="FDL-AV-ZPd"/>
-                            <constraint firstItem="wLb-8i-tVh" firstAttribute="leading" secondItem="Sdb-Vs-iiR" secondAttribute="leadingMargin" id="Mbw-qg-TOj"/>
-                            <constraint firstItem="a9Z-2g-5Ix" firstAttribute="leading" secondItem="Sdb-Vs-iiR" secondAttribute="leadingMargin" constant="-16" id="hpq-9n-w5n"/>
+                            <constraint firstAttribute="trailing" secondItem="a9Z-2g-5Ix" secondAttribute="trailing" id="BIo-Tk-BD7"/>
+                            <constraint firstItem="wLb-8i-tVh" firstAttribute="trailing" secondItem="Sdb-Vs-iiR" secondAttribute="trailing" id="FDL-AV-ZPd"/>
+                            <constraint firstItem="wLb-8i-tVh" firstAttribute="leading" secondItem="Sdb-Vs-iiR" secondAttribute="leading" id="Mbw-qg-TOj"/>
+                            <constraint firstItem="a9Z-2g-5Ix" firstAttribute="leading" secondItem="Sdb-Vs-iiR" secondAttribute="leading" id="hpq-9n-w5n"/>
                             <constraint firstItem="RKJ-QD-Oh3" firstAttribute="top" secondItem="wLb-8i-tVh" secondAttribute="bottom" constant="8" id="lFn-Fz-z32">
                                 <variation key="widthClass=compact" constant="8" symbolic="YES"/>
                             </constraint>
@@ -258,9 +258,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="iX1-lP-GAM" secondAttribute="trailing" constant="-16" id="0tr-SE-m4O"/>
+                            <constraint firstAttribute="trailing" secondItem="iX1-lP-GAM" secondAttribute="trailing" id="0tr-SE-m4O"/>
                             <constraint firstItem="iX1-lP-GAM" firstAttribute="top" secondItem="5Q6-NW-uvI" secondAttribute="topMargin" id="cmH-86-Xem"/>
-                            <constraint firstItem="iX1-lP-GAM" firstAttribute="leading" secondItem="5Q6-NW-uvI" secondAttribute="leadingMargin" constant="-16" id="eye-8M-Dhb"/>
+                            <constraint firstItem="iX1-lP-GAM" firstAttribute="leading" secondItem="5Q6-NW-uvI" secondAttribute="leading" id="eye-8M-Dhb"/>
                             <constraint firstItem="8em-NF-aid" firstAttribute="top" secondItem="iX1-lP-GAM" secondAttribute="bottom" id="u6J-1b-V5x"/>
                         </constraints>
                         <variation key="default">
