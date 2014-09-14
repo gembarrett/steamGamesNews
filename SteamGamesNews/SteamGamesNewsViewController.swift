@@ -12,6 +12,9 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     
     let kCellIdentifier: String = "GameCell"
     
+    var toPass:String!
+    var steamid:String?
+    
     // create empty array containing only steam objects (list of games, news items, etc)
     var games = [Game]()
     
@@ -25,9 +28,12 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         super.viewDidLoad()
         // network activity indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
         // action the API calling function defined
-        api.getSteamGames(APIkey, steamid: userID)
+        
+        var vanityUsername = toPass
+        
+        api.getSteamID(APIkey, vanityid: vanityUsername)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +52,41 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     
     
     func didReceiveAPIResults(gameResults: NSDictionary) {
+        
+        if let response = gameResults["response"] as? NSDictionary {
+            
+            if ((response["success"]) != nil) {
+            
+                // if success code is 1 then grab the steam id
+                //            if ((response["success"]) == "1") {
+                //                let steamID: String = jsonResult["steamid"] as String
+                //            }
+                //            // if success code is 42 then display alert saying there's no match
+                //            else if ((response["success"]) == "42") {
+                //                println("no id found")
+                //            }
+                //            // if success code is anything else, display alert blaming error on the server
+                //            else {
+                //                println("It's the server's fault")
+                //            }
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.steamid = response["steamid"] as? String!
+                    if (self.steamid != nil) {
+                        self.api.getSteamGames(APIkey, steamid: self.steamid!)
+                    }
+                    else {
+                        println("no steamid received yet")
+                    }
+
+                })
+
+            }
+
+            
+            
+        }
+
         
         if let response = gameResults["response"] as? NSDictionary {
             if let games = response["games"] as? NSArray {

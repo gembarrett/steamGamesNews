@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-class SteamUserViewController: UIViewController, SteamAPIControllerProtocol {
+class SteamUserViewController: UIViewController {
 
     @IBOutlet weak var inputUsername: UITextField!
     @IBOutlet weak var submitUsername: UIButton!
     
     var vanityUsername : String = ""
-    // api is a lazy variable as only created when first used
-    lazy var api : SteamAPIController = SteamAPIController(delegate: self)
-    lazy var APIkey : String = "STEAM-KEY-HERE"
+//    var steamID : String?
 
+    // api is a lazy variable as only created when first used
+    
+//    lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
     @IBAction func saveVanityID(sender:AnyObject) {
-        println(inputUsername.text)
         if inputUsername.text.isEmpty {
             // show alert asking for vanity name
             println("No vanity name entered")
@@ -29,6 +29,7 @@ class SteamUserViewController: UIViewController, SteamAPIControllerProtocol {
         else {
             vanityUsername = inputUsername.text
         }
+
     }
     
     override func viewDidLoad() {
@@ -36,24 +37,42 @@ class SteamUserViewController: UIViewController, SteamAPIControllerProtocol {
         
     }
     
+
+//    func didReceiveAPIResults(steamIDReceived: NSDictionary) {
+//        
+//        if let response = steamIDReceived["response"] as? NSDictionary {
+//            
+//            
+//            steamID = response["steamid"] as String?
+//
+//            println(steamID! + "id updated")
+//
+//            
+//            // if success code is 1 then grab the steam id
+////            if ((response["success"]) == "1") {
+////                let steamID: String = jsonResult["steamid"] as String
+////            }
+////            // if success code is 42 then display alert saying there's no match
+////            else if ((response["success"]) == "42") {
+////                println("no id found")
+////            }
+////            // if success code is anything else, display alert blaming error on the server
+////            else {
+////                println("It's the server's fault")
+////            }
+//
+//        }
+//
+//    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var steamGamesNewsViewController: SteamGamesNewsViewController = segue.destinationViewController as SteamGamesNewsViewController
-        api.getSteamID(APIkey, vanityid: vanityUsername)
+        vanityUsername = inputUsername.text
+
+        steamGamesNewsViewController.toPass = vanityUsername
 
     }
 
-    func didReceiveAPIResults(steamIDReceived: NSDictionary) {
-        
-        //        if let response = newsResults["appnews"] as? NSDictionary {
-        //            if let news = response["newsitems"] as? NSArray {
-        //                dispatch_async(dispatch_get_main_queue(), {
-        //                    self.news = News.newsWithJSON(news)
-        //                    self.detailsTrackView!.reloadData()
-        //                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        //                })
-        //            }
-        //        }
-    }
 
     
 }

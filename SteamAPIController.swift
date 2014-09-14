@@ -13,16 +13,15 @@ protocol SteamAPIControllerProtocol {
     func didReceiveAPIResults(gameResults: NSDictionary)
 }
 
+var APIkey : String = "STEAM-KEY-HERE"
+var steamid : String?
+
 class SteamAPIController {
     
     var delegate: SteamAPIControllerProtocol
     init(delegate: SteamAPIControllerProtocol) {
         self.delegate = delegate
     }
-    
-    // create variables for steam key and id
-    var userID = "76561198073968915"
-
     
     func getSteamID(steamkey: String, vanityid: String) {
         get ("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=\(steamkey)&vanityurl=\(vanityid)")
@@ -57,13 +56,9 @@ class SteamAPIController {
             
             // if we're getting a list of games or a steamID
             if ((jsonResult["response"]) != nil) {
-                //if response contains success then check success code
-                // if success code is 1 then grab the steam id
-                // if success code is 42 then display alert saying there's no match
-                // if success code is anything else, display alert blaming error on the server
-                
-                // create gameResults list
-                let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
+            
+                    // create gameResults list
+                    let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
             }
             // but if we're getting a list of newsitems for a game, create newsResults list instead
             else if ((jsonResult["appnews"]) != nil) {
