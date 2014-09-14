@@ -13,9 +13,9 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bQe-Vx-BHy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qmu-A9-2Ju">
-                            <size key="itemSize" width="100" height="100"/>
+                            <size key="itemSize" width="70" height="70"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6K5-lJ-NTO">
@@ -35,10 +35,18 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="6K5-lJ-NTO" secondAttribute="trailing" id="8cS-cB-YyT"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="6K5-lJ-NTO" secondAttribute="bottom" id="PmZ-Gu-5LX"/>
-                                    <constraint firstItem="6K5-lJ-NTO" firstAttribute="leading" secondItem="bfY-uu-LFD" secondAttribute="leadingMargin" id="qqY-0z-UfI"/>
-                                    <constraint firstItem="6K5-lJ-NTO" firstAttribute="top" secondItem="bfY-uu-LFD" secondAttribute="topMargin" id="vy7-or-inA"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="6K5-lJ-NTO" secondAttribute="trailing" id="8cS-cB-YyT">
+                                        <variation key="widthClass=compact" constant="-10"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottomMargin" secondItem="6K5-lJ-NTO" secondAttribute="bottom" id="PmZ-Gu-5LX">
+                                        <variation key="widthClass=compact" constant="-10"/>
+                                    </constraint>
+                                    <constraint firstItem="6K5-lJ-NTO" firstAttribute="leading" secondItem="bfY-uu-LFD" secondAttribute="leadingMargin" id="qqY-0z-UfI">
+                                        <variation key="widthClass=compact" constant="-10"/>
+                                    </constraint>
+                                    <constraint firstItem="6K5-lJ-NTO" firstAttribute="top" secondItem="bfY-uu-LFD" secondAttribute="topMargin" id="vy7-or-inA">
+                                        <variation key="widthClass=compact" constant="-10"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -292,6 +300,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nxk-kN-pNg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9y-rf-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQl-d3-RWb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iO4-WI-y5f">
@@ -303,7 +312,6 @@
                         <segue destination="h3J-cv-4z7" kind="relationship" relationship="rootViewController" id="R2W-6a-ZLJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c9y-rf-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1702.5" y="140"/>
         </scene>
@@ -323,39 +331,72 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="151" width="238" height="30"/>
-                                </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Steam vanity username below" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-WD-Zxg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Steam vanity ID below" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-WD-Zxg">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="88" width="315" height="21"/>
-                                </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcY-FA-bCw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LcY-FA-bCw">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Go to games list">
+                                <state key="normal" title="Get my games!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="210" width="113" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="saveVanityID:" destination="h3J-cv-4z7" eventType="touchUpInside" id="FcM-Td-Sph"/>
                                     <segue destination="mjM-7y-MjB" kind="show" id="eV3-Dj-bNV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TZJ-JT-oeu">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="What is my vanity ID?"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YMd-WD-Zxg" firstAttribute="leading" secondItem="X2x-dH-IMe" secondAttribute="leading" constant="27" id="2mE-B8-pOG"/>
+                            <constraint firstItem="TZJ-JT-oeu" firstAttribute="top" secondItem="YMd-WD-Zxg" secondAttribute="bottom" constant="7.5" id="2x8-2W-usH"/>
+                            <constraint firstItem="LcY-FA-bCw" firstAttribute="top" secondItem="ioi-2s-PY1" secondAttribute="bottom" constant="29" id="3fU-of-rLY"/>
+                            <constraint firstItem="YMd-WD-Zxg" firstAttribute="top" secondItem="FcJ-Y3-cTK" secondAttribute="bottom" constant="24" id="3zz-4H-N5t"/>
+                            <constraint firstItem="TZJ-JT-oeu" firstAttribute="leading" secondItem="X2x-dH-IMe" secondAttribute="leading" constant="130" id="I5z-cT-Kqh">
+                                <variation key="widthClass=compact" constant="85"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="LcY-FA-bCw" secondAttribute="trailing" constant="132" id="Wpw-ls-ong">
+                                <variation key="widthClass=compact" constant="84"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="TZJ-JT-oeu" secondAttribute="trailing" constant="129" id="ZGt-o0-vWK">
+                                <variation key="widthClass=compact" constant="84"/>
+                            </constraint>
+                            <constraint firstItem="ioi-2s-PY1" firstAttribute="top" secondItem="TZJ-JT-oeu" secondAttribute="bottom" constant="13" id="ait-ho-Dk2"/>
+                            <constraint firstAttribute="trailing" secondItem="ioi-2s-PY1" secondAttribute="trailing" constant="65" id="cUl-88-qwN"/>
+                            <constraint firstItem="LcY-FA-bCw" firstAttribute="leading" secondItem="X2x-dH-IMe" secondAttribute="leading" constant="123" id="fZn-kB-O57">
+                                <variation key="widthClass=compact" constant="85"/>
+                            </constraint>
+                            <constraint firstItem="ioi-2s-PY1" firstAttribute="leading" secondItem="X2x-dH-IMe" secondAttribute="leading" constant="65" id="ok6-Ky-KFc"/>
+                            <constraint firstAttribute="trailing" secondItem="YMd-WD-Zxg" secondAttribute="trailing" constant="26" id="v7O-pK-IkO"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ioi-2s-PY1"/>
                                 <exclude reference="YMd-WD-Zxg"/>
                                 <exclude reference="LcY-FA-bCw"/>
+                                <exclude reference="TZJ-JT-oeu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="2mE-B8-pOG"/>
+                                <exclude reference="3zz-4H-N5t"/>
+                                <exclude reference="v7O-pK-IkO"/>
+                                <exclude reference="ait-ho-Dk2"/>
+                                <exclude reference="cUl-88-qwN"/>
+                                <exclude reference="ok6-Ky-KFc"/>
+                                <exclude reference="3fU-of-rLY"/>
+                                <exclude reference="Wpw-ls-ong"/>
+                                <exclude reference="fZn-kB-O57"/>
+                                <exclude reference="2x8-2W-usH"/>
+                                <exclude reference="I5z-cT-Kqh"/>
+                                <exclude reference="ZGt-o0-vWK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -363,6 +404,21 @@
                                 <include reference="ioi-2s-PY1"/>
                                 <include reference="YMd-WD-Zxg"/>
                                 <include reference="LcY-FA-bCw"/>
+                                <include reference="TZJ-JT-oeu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="2mE-B8-pOG"/>
+                                <include reference="3zz-4H-N5t"/>
+                                <include reference="v7O-pK-IkO"/>
+                                <include reference="ait-ho-Dk2"/>
+                                <include reference="cUl-88-qwN"/>
+                                <include reference="ok6-Ky-KFc"/>
+                                <include reference="3fU-of-rLY"/>
+                                <include reference="Wpw-ls-ong"/>
+                                <include reference="fZn-kB-O57"/>
+                                <include reference="2x8-2W-usH"/>
+                                <include reference="I5z-cT-Kqh"/>
+                                <include reference="ZGt-o0-vWK"/>
                             </mask>
                         </variation>
                     </view>

@@ -14,6 +14,16 @@ class SteamUserViewController: UIViewController {
     @IBOutlet weak var inputUsername: UITextField!
     @IBOutlet weak var submitUsername: UIButton!
     
+    @IBAction func vanityidExplanation(sender: AnyObject) {
+        var myAlertView = UIAlertView()
+        
+        myAlertView.title = "What is my vanity ID?"
+        myAlertView.message = "\r Your vanity ID is at the end of your Steam profile URL \r (e.g. http://steamcommunity.com/id/YOUR-VANITY-ID)"
+        myAlertView.addButtonWithTitle("Dismiss")
+        
+        myAlertView.show()
+
+    }
     var vanityUsername : String = ""
 //    var steamID : String?
 
@@ -32,10 +42,12 @@ class SteamUserViewController: UIViewController {
 
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
     
 
 //    func didReceiveAPIResults(steamIDReceived: NSDictionary) {
