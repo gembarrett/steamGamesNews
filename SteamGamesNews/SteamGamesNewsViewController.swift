@@ -58,19 +58,20 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
             if ((response["success"]) != nil) {
             
                 // if success code is 1 then grab the steam id
-                //            if ((response["success"]) == "1") {
-                //                let steamID: String = jsonResult["steamid"] as String
-                //            }
-                //            // if success code is 42 then display alert saying there's no match
-                //            else if ((response["success"]) == "42") {
-                //                println("no id found")
-                //            }
-                //            // if success code is anything else, display alert blaming error on the server
-                //            else {
-                //                println("It's the server's fault")
-                //            }
 
                 dispatch_async(dispatch_get_main_queue(), {
+                    //            if ((response["success"]) == "1") {
+                    //                let steamID: String = jsonResult["steamid"] as String
+                    //            }
+                    //            // if success code is 42 then display alert saying there's no match
+                    //            else if ((response["success"]) == "42") {
+                    //                println("no id found")
+                    //            }
+                    //            // if success code is anything else, display alert blaming error on the server
+                    //            else {
+                    //                println("It's the server's fault")
+                    //            }
+
                     self.steamid = response["steamid"] as? String!
                     if (self.steamid != nil) {
                         self.api.getSteamGames(APIkey, steamid: self.steamid!)

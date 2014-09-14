@@ -25,12 +25,7 @@ class SteamUserViewController: UIViewController {
 
     }
     
-    var vanityUsername : String = ""
-//    var steamID : String?
 
-    // api is a lazy variable as only created when first used
-    
-//    lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
     @IBAction func saveVanityID(sender:AnyObject) {
         if inputUsername.text.isEmpty {
@@ -43,40 +38,13 @@ class SteamUserViewController: UIViewController {
 
     }
     
-    
+        var vanityUsername : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    
-
-//    func didReceiveAPIResults(steamIDReceived: NSDictionary) {
-//        
-//        if let response = steamIDReceived["response"] as? NSDictionary {
-//            
-//            
-//            steamID = response["steamid"] as String?
-//
-//            println(steamID! + "id updated")
-//
-//            
-//            // if success code is 1 then grab the steam id
-////            if ((response["success"]) == "1") {
-////                let steamID: String = jsonResult["steamid"] as String
-////            }
-////            // if success code is 42 then display alert saying there's no match
-////            else if ((response["success"]) == "42") {
-////                println("no id found")
-////            }
-////            // if success code is anything else, display alert blaming error on the server
-////            else {
-////                println("It's the server's fault")
-////            }
-//
-//        }
-//
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var steamGamesNewsViewController: SteamGamesNewsViewController = segue.destinationViewController as SteamGamesNewsViewController
