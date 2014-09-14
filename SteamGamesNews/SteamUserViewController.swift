@@ -13,7 +13,7 @@ class SteamUserViewController: UIViewController {
 
     @IBOutlet weak var inputUsername: UITextField!
     @IBOutlet weak var submitUsername: UIButton!
-    
+
     @IBAction func vanityidExplanation(sender: AnyObject) {
         var myAlertView = UIAlertView()
         
@@ -24,6 +24,7 @@ class SteamUserViewController: UIViewController {
         myAlertView.show()
 
     }
+    
     var vanityUsername : String = ""
 //    var steamID : String?
 
