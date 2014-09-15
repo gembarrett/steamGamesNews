@@ -15,7 +15,6 @@
 		335F9027198D82CC007412F9 /* SteamObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F9026198D82CC007412F9 /* SteamObject.swift */; };
 		338854F4198D336A0081345C /* SteamAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338854F3198D336A0081345C /* SteamAPIController.swift */; };
 		33966A3019C5EAEF00F86622 /* 5S-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33966A2F19C5EAEF00F86622 /* 5S-bg.jpg */; };
-		33966A3219C5FBAC00F86622 /* 5Sbg-l.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33966A3119C5FBAC00F86622 /* 5Sbg-l.jpg */; };
 		33966A3419C605AC00F86622 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33966A3319C605AC00F86622 /* CoreData.framework */; };
 		339E0E1E19B5BBB400DC11CD /* SteamArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E0E1D19B5BBB400DC11CD /* SteamArticleViewController.swift */; };
 		339E0E2119B744DE00DC11CD /* SteamGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */; };
@@ -46,7 +45,6 @@
 		335F9026198D82CC007412F9 /* SteamObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamObject.swift; path = ../SteamObject.swift; sourceTree = "<group>"; };
 		338854F3198D336A0081345C /* SteamAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamAPIController.swift; path = ../SteamAPIController.swift; sourceTree = "<group>"; };
 		33966A2F19C5EAEF00F86622 /* 5S-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5S-bg.jpg"; sourceTree = "<group>"; };
-		33966A3119C5FBAC00F86622 /* 5Sbg-l.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5Sbg-l.jpg"; sourceTree = "<group>"; };
 		33966A3319C605AC00F86622 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		339E0E1D19B5BBB400DC11CD /* SteamArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamArticleViewController.swift; sourceTree = "<group>"; };
 		339E0E2019B744DE00DC11CD /* SteamGameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGameCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		33F1A4CA198D0E10008E9EAE /* SteamGamesNews */ = {
 			isa = PBXGroup;
 			children = (
-				33966A3119C5FBAC00F86622 /* 5Sbg-l.jpg */,
 				33966A2F19C5EAEF00F86622 /* 5S-bg.jpg */,
 				339E0E1F19B5BF2500DC11CD /* NewsItems */,
 				338854F3198D336A0081345C /* SteamAPIController.swift */,
@@ -240,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B1C783198D47C800B02F43 /* Blank52.png in Resources */,
-				33966A3219C5FBAC00F86622 /* 5Sbg-l.jpg in Resources */,
 				33F1A4D3198D0E10008E9EAE /* Main.storyboard in Resources */,
 				33966A3019C5EAEF00F86622 /* 5S-bg.jpg in Resources */,
 				33F1A4D5198D0E10008E9EAE /* Images.xcassets in Resources */,

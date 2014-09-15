@@ -19,6 +19,9 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var news = [News]()
     lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
+    var refreshControl:UIRefreshControl!  // An optional variable
+
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -34,10 +37,20 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         if (self.game? != nil) {
             api.lookupNews(self.game!.appid)
         }
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.detailsTrackView?.addSubview(refreshControl)
+
 
     }
     
-    
+    func refreshNews(sender:AnyObject) {
+        // Code to refresh table view
+        self.api.lookupNews(self.game!.appid)
+    }
+
     func didReceiveAPIResults(newsResults: NSDictionary) {
         
         if let response = newsResults["appnews"] as? NSDictionary {
@@ -47,6 +60,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
                     self.detailsTrackView!.reloadData()
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
+                self.refreshControl.endRefreshing()
             }
         }
     }

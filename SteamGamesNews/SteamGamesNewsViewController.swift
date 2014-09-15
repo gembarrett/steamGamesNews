@@ -24,6 +24,14 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     // take string as key and stores UIImage as a value
     var imageCache = [String : UIImage]()
     
+    var refreshControl:UIRefreshControl!  // An optional variable
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // network activity indicator
@@ -33,6 +41,12 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         var vanityUsername = toPass
         
         api.getSteamID(APIkey, vanityid: vanityUsername)
+
+
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refreshGames:", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView?.addSubview(refreshControl)
 
     }
     
@@ -50,12 +64,19 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         steamDetailsViewController.game = selectedGame
     }
     
+    func refreshGames(sender:AnyObject) {
+        // Code to refresh table view
+        self.api.getSteamGames(APIkey, steamid: self.steamid!)
+    }
+
+    
     
     func didReceiveAPIResults(gameResults: NSDictionary) {
         
         if let response = gameResults["response"] as? NSDictionary {
             
-            if ((response["success"]) != nil) {
+            // if there is a success code and steamid returned
+            if (((response["success"]) != nil) && ((response["steamid"] != nil))) {
             
                 // if success code is 1 then grab the steam id
 
@@ -83,11 +104,10 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                 })
 
             }
-
-            
-            
+            self.refreshControl.endRefreshing()
         }
 
+        
         
         if let response = gameResults["response"] as? NSDictionary {
             if let games = response["games"] as? NSArray {
