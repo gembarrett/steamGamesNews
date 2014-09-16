@@ -11,7 +11,8 @@ import UIKit
 
 class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SteamAPIControllerProtocol {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UINavigationItem!
+//    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var detailsTrackView: UITableView!
 
@@ -29,7 +30,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         // load in the info being passed through for selected steam object
-        titleLabel.text = self.game?.name
+        titleLabel.title = self.game?.name
         gameImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)))
         
         
