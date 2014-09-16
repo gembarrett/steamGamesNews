@@ -10,6 +10,7 @@ import UIKit
 
 class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControllerProtocol {
     
+    
     let kCellIdentifier: String = "GameCell"
     
     var toPass:String!
@@ -41,13 +42,12 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         var vanityUsername = toPass
         
         api.getSteamID(APIkey, vanityid: vanityUsername)
-
-
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refreshGames:", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView?.addSubview(refreshControl)
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,11 +57,15 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // cast the steam object member to details view controller
-        var steamDetailsViewController: SteamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
+        
+        let steamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
+
+        
         // work out which steam object is selected at the moment the segue happens
         var gameIndex = self.collectionView?.indexPathsForSelectedItems()[0].item
         var selectedGame = self.games[gameIndex!]
         steamDetailsViewController.game = selectedGame
+        
     }
     
     func refreshGames(sender:AnyObject) {

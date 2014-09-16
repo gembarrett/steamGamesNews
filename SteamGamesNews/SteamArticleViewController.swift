@@ -15,6 +15,10 @@ class SteamArticleViewController: UIViewController {
     
     var selectedNews : String = ""
     
+    @IBAction func unwindToNewsList(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        UIApplication.sharedApplication().networkActivityIndicatorVisible = true

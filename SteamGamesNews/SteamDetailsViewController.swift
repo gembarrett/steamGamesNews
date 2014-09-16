@@ -51,6 +51,16 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         // Code to refresh table view
         self.api.lookupNews(self.game!.appid)
     }
+    
+    
+
+
+    @IBAction func unwindToGamesList(sender: AnyObject) {
+        
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+
+    }
 
     func didReceiveAPIResults(newsResults: NSDictionary) {
         
