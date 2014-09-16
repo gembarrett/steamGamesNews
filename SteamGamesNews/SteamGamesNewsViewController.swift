@@ -25,7 +25,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     // take string as key and stores UIImage as a value
     var imageCache = [String : UIImage]()
     
-    var refreshControl:UIRefreshControl!  // An optional variable
+//    var refreshControl:UIRefreshControl!  // An optional variable
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -43,10 +43,10 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         
         api.getSteamID(APIkey, vanityid: vanityUsername)
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refreshGames:", forControlEvents: UIControlEvents.ValueChanged)
-        self.collectionView?.addSubview(refreshControl)
+//        self.refreshControl = UIRefreshControl()
+//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl.addTarget(self, action: "refreshGames:", forControlEvents: UIControlEvents.ValueChanged)
+//        self.collectionView?.addSubview(refreshControl)
         
     }
     
@@ -68,10 +68,10 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         
     }
     
-    func refreshGames(sender:AnyObject) {
-        // Code to refresh table view
-        self.api.getSteamGames(APIkey, steamid: self.steamid!)
-    }
+//    func refreshGames(sender:AnyObject) {
+//        // Code to refresh table view
+//        self.api.getSteamGames(APIkey, steamid: self.steamid!)
+//    }
 
     
     
@@ -108,7 +108,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                 })
 
             }
-            self.refreshControl.endRefreshing()
+//            self.refreshControl.endRefreshing()
         }
 
         
