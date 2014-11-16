@@ -13,7 +13,7 @@ protocol SteamAPIControllerProtocol {
     func didReceiveAPIResults(gameResults: NSDictionary)
 }
 
-var APIkey : String = "STEAM-KEY-HERE"
+var APIkey : String = "566FAD0EB171FDF6592D22A65B23A655"
 var steamid : String?
 
 class SteamAPIController {
@@ -42,7 +42,7 @@ class SteamAPIController {
         let session = NSURLSession.sharedSession()
         
         // creates connection task to send request
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if((error) != nil) {
                 // If there is an error in the web request, print it to the console
                 println(error.localizedDescription)
@@ -65,7 +65,7 @@ class SteamAPIController {
                 let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
 //                let newsResults: NSArray = appnews["newsitems"] as NSArray
             }
-            
+            println(jsonResult)
             self.delegate.didReceiveAPIResults(jsonResult)
         })
         

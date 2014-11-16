@@ -15,7 +15,7 @@ class SteamGameTableViewCell: UITableViewCell {
     @IBOutlet weak var timePlayed: UILabel!
     
     required init(coder aDecoder: NSCoder) {
-        return super.init(coder: aDecoder);
+        super.init(coder: aDecoder)
     }
     
 }

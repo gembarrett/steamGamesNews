@@ -24,7 +24,7 @@ class SteamArticleViewController: UIViewController {
 //        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let thisURL = selectedNews
         let requestURL = NSURL(string: selectedNews)
-        let request = NSURLRequest(URL: requestURL)
+        let request = NSURLRequest(URL: requestURL!)
         newsItemView.loadRequest(request)
     }
 

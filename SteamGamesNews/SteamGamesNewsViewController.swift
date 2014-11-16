@@ -65,7 +65,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         var gameIndex = self.collectionView?.indexPathsForSelectedItems()[0].item
         var selectedGame = self.games[gameIndex!]
         steamDetailsViewController.game = selectedGame
-        
     }
     
 //    func refreshGames(sender:AnyObject) {
@@ -148,7 +147,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         
         if(image == nil) {
             // If the image does not exist, we need to download it
-            var imgURL: NSURL = NSURL(string: urlString)
+            var imgURL: NSURL = NSURL(string: urlString)!
             
             // Download an NSData representation of the image at the URL
             let request: NSURLRequest = NSURLRequest(URL: imgURL)

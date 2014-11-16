@@ -31,7 +31,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         // load in the info being passed through for selected steam object
         titleLabel.title = self.game?.name
-        gameImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)))
+        gameImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)!)!)
         
         
         // pull down news items based on selected game
