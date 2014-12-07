@@ -40,12 +40,12 @@ class Game {
                 let appid : String = "\(appInt)"
                 
                 let playingTime = thisGame["playtime_forever"] as Int
-                
+                                
                 let thumbnailImageID = thisGame["img_icon_url"] as String
-                let thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(thumbnailImageID).jpg"
+                let thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steam/apps/\(appid)/capsule_184x69.jpg"
                 
                 let largeImageID = thisGame["img_logo_url"] as String
-                let largeImageURL = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/\(appid)/\(largeImageID).jpg"
+                let largeImageURL = "http://cdn.akamai.steamstatic.com/steam/apps/\(appid)/header.jpg"
                                 
                 let newGame = Game(appid: appid, name: name, thumbnailImageURL: thumbnailImageURL, largeImageURL: largeImageURL, playingTime: playingTime)
                 
