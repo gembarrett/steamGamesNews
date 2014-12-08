@@ -13,7 +13,6 @@ protocol SteamAPIControllerProtocol {
     func didReceiveAPIResults(gameResults: NSDictionary)
 }
 
-
 var APIkey : String = "STEAM-KEY-HERE"
 var steamid : String?
 

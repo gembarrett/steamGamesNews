@@ -39,18 +39,10 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
             api.lookupNews(self.game!.appid)
         }
         
-//        self.refreshControl = UIRefreshControl()
-//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-//        self.detailsTrackView?.addSubview(refreshControl)
 
 
     }
     
-//    func refreshNews(sender:AnyObject) {
-//        // Code to refresh table view
-//        self.api.lookupNews(self.game!.appid)
-//    }
     
 
     @IBAction func unwindToGamesList(sender: AnyObject) {
@@ -91,12 +83,5 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         var selectedNews = self.news[newsIndex!].url
         steamArticleViewController.selectedNews = selectedNews
     }
-    
-
-    
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
-        var newsItem = news[indexPath.row]
-    }
-    
 
 }
