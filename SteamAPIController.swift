@@ -13,6 +13,7 @@ protocol SteamAPIControllerProtocol {
     func didReceiveAPIResults(gameResults: NSDictionary)
 }
 
+
 var APIkey : String = "STEAM-KEY-HERE"
 var steamid : String?
 
@@ -56,7 +57,7 @@ class SteamAPIController {
             
             // if we're getting a list of games or a steamID
             if ((jsonResult["response"]) != nil) {
-            
+                    println(jsonResult["response"])
                     // create gameResults list
                     let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
             }
@@ -65,7 +66,6 @@ class SteamAPIController {
                 let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
 //                let newsResults: NSArray = appnews["newsitems"] as NSArray
             }
-            println(jsonResult)
             self.delegate.didReceiveAPIResults(jsonResult)
         })
         

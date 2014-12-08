@@ -42,12 +42,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         var vanityUsername = toPass
         
         api.getSteamID(APIkey, vanityid: vanityUsername)
-        
-//        self.refreshControl = UIRefreshControl()
-//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        self.refreshControl.addTarget(self, action: "refreshGames:", forControlEvents: UIControlEvents.ValueChanged)
-//        self.collectionView?.addSubview(refreshControl)
-        
+                
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +54,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         // cast the steam object member to details view controller
         
         let steamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
-
         
         // work out which steam object is selected at the moment the segue happens
         var gameIndex = self.collectionView?.indexPathsForSelectedItems()[0].item
@@ -67,62 +61,51 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         steamDetailsViewController.game = selectedGame
     }
     
-//    func refreshGames(sender:AnyObject) {
-//        // Code to refresh table view
-//        self.api.getSteamGames(APIkey, steamid: self.steamid!)
-//    }
-
-    
     
     func didReceiveAPIResults(gameResults: NSDictionary) {
         
         if let response = gameResults["response"] as? NSDictionary {
             
-            // if there is a success code and steamid returned
-            if (((response["success"]) != nil) && ((response["steamid"] != nil))) {
+                if (response["success"] != nil) {
+                    
+                    
+                    let successCode = response["success"] as Int
+                    switch successCode {
+                        case 1:
+                            println("we got a steam id")
+                            self.steamid = response["steamid"] as? String!
+                            if (self.steamid != nil) {
+                                self.api.getSteamGames(APIkey, steamid: self.steamid!)
+                            }
+                        case 42:
+                            println("no id match")
+                            let errorMessage = response["message"] as String
+                            var errorAlert = UIAlertController(title: "Something went wrong!", message: errorMessage, preferredStyle: .Alert)
+                            errorAlert.addAction(UIAlertAction(title: "Return", style: .Default, handler:nil))
+                            self.presentViewController(errorAlert, animated: true, completion: nil)
+                        default:
+                            println("neither a 1 nor a 42 - I don't know wtf is going on")
+                    } // end of switch
+                    
+
+                }
             
-                // if success code is 1 then grab the steam id
+                // if games list has been returned, add to array
+                if let games = response["games"] as? NSArray {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
 
-                dispatch_async(dispatch_get_main_queue(), {
-                    //            if ((response["success"]) == "1") {
-                    //                let steamID: String = jsonResult["steamid"] as String
-                    //            }
-                    //            // if success code is 42 then display alert saying there's no match
-                    //            else if ((response["success"]) == "42") {
-                    //                println("no id found")
-                    //            }
-                    //            // if success code is anything else, display alert blaming error on the server
-                    //            else {
-                    //                println("It's the server's fault")
-                    //            }
-
-                    self.steamid = response["steamid"] as? String!
-                    if (self.steamid != nil) {
-                        self.api.getSteamGames(APIkey, steamid: self.steamid!)
-                    }
-                    else {
-                        println("no steamid received yet")
-                    }
-
-                })
-
-            }
-//            self.refreshControl.endRefreshing()
-        }
-
-        
-        
-        if let response = gameResults["response"] as? NSDictionary {
-            if let games = response["games"] as? NSArray {
                 
-                dispatch_async(dispatch_get_main_queue(), {
                     self.games = Game.gamesWithJSON(games)
                     self.collectionView?.reloadData()
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                        
                     })
                 
-            }
+                }
+            
         }
+        
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
