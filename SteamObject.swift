@@ -24,7 +24,7 @@ class Game {
         self.playingTime = playingTime
     }
     
-    class func gamesWithJSON(gameResults: NSArray) -> [Game] {
+    class func gamesFromJSON(gameResults: NSArray) -> [Game] {
         // empty array of Steam Objects to append to
         var games = [Game]()
         

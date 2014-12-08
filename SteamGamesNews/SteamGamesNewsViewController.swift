@@ -92,19 +92,20 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                 // check that a user has games!
                 if (response["game_count"] != nil) {
                     println(response["game_count"])
+                    let gamesCount = response["game_count"] as Int
                     // if games list has been returned, add to array
                     if let games = response["games"] as? NSArray {
                         dispatch_async(dispatch_get_main_queue(), {
-                            self.games = Game.gamesWithJSON(games)
+                            self.games = Game.gamesFromJSON(games)
                             self.collectionView?.reloadData()
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                         })
                     }
-                }
-                else {
-                    var errorAlert = UIAlertController(title: "Oh no!", message: "You don't have any games! Go buy some or enter another vanity ID.", preferredStyle: .Alert)
-                    errorAlert.addAction(UIAlertAction(title: "Return", style: .Default, handler:nil))
-                    self.presentViewController(errorAlert, animated: true, completion: nil)
+                    else if (gamesCount == 0) {
+                        var errorAlert = UIAlertController(title: "Oh no!", message: "You don't have any games! Go buy some or enter another vanity ID.", preferredStyle: .Alert)
+                        errorAlert.addAction(UIAlertAction(title: "Return", style: .Default, handler:nil))
+                        self.presentViewController(errorAlert, animated: true, completion: nil)
+                    }
                 }
             
         }
