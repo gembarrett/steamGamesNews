@@ -42,7 +42,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         var vanityUsername = toPass
         
         api.getSteamID(APIkey, vanityid: vanityUsername)
-                
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,7 +90,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
             
                 // check that a user has games!
                 if (response["game_count"] != nil) {
-                    println(response["game_count"])
                     let gamesCount = response["game_count"] as Int
                     // if games list has been returned, add to array
                     if let games = response["games"] as? NSArray {

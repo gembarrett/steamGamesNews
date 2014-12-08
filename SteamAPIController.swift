@@ -56,7 +56,6 @@ class SteamAPIController {
             
             // if we're getting a list of games or a steamID
             if ((jsonResult["response"]) != nil) {
-                    println(jsonResult["response"])
                     // create gameResults list
                     let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
             }

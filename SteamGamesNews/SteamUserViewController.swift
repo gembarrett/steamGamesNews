@@ -24,11 +24,12 @@ class SteamUserViewController: UIViewController {
     }
     
 
-    
     @IBAction func saveVanityID(sender:AnyObject) {
         if inputUsername.text.isEmpty {
             // show alert asking for vanity name
-            println("No vanity name entered")
+            var errorAlert = UIAlertController(title: "Forgotten something?", message: "You need to enter a vanity ID in order to get the games list.", preferredStyle: .Alert)
+            errorAlert.addAction(UIAlertAction(title: "Return", style: .Default, handler:nil))
+            self.presentViewController(errorAlert, animated: true, completion: nil)
         }
         else {
             vanityUsername = inputUsername.text
