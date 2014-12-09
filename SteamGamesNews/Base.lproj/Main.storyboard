@@ -559,7 +559,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign in" id="R88-XY-3yA"/>
+                    <navigationItem key="navigationItem" title="Sign in" id="R88-XY-3yA">
+                        <barButtonItem key="backBarButtonItem" title="Vanity ID" id="iPK-Mp-ikp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="inputUsername" destination="ioi-2s-PY1" id="A44-iy-vU4"/>
                         <outlet property="submitUsername" destination="LcY-FA-bCw" id="mvf-vA-mj6"/>

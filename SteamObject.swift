@@ -54,6 +54,8 @@ class Game {
             // sort games by playing time so most popular games at top
             games = games.sorted {$0.playingTime > $1.playingTime}
         }
+        
+        println(games[32].appid)
         return games
     }
 }

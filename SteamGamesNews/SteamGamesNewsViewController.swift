@@ -71,8 +71,8 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                     switch successCode {
                         case 1:
                             println("we got a steam id")
-                            self.steamid = response["steamid"] as? String!
-                            if (self.steamid != nil) {
+                            self.steamid = response["steamid"] as? String
+                            if let steamid = self.steamid{
                                 self.api.getSteamGames(APIkey, steamid: self.steamid!)
                             }
                         case 42:
@@ -119,10 +119,9 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         
         // check to make sure this item exists
         let game = self.games[indexPath.item]
-        //        cell.gameName.text = game.name
+        
+        // cell.gameName.text = game.name
         cell.gameLogo.image = UIImage(named: "Blank52")
-                
-        // go to background thread to get image for this item
         
         // get image url for thumbnail
         let urlString = game.thumbnailImageURL
@@ -130,6 +129,8 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
         // check image cache for the existing key
         var image = self.imageCache[urlString]
         
+        
+        // TODO: refactor into a separate method and set images after configuring rest of cell
         if(image == nil) {
             // If the image does not exist, we need to download it
             var imgURL: NSURL = NSURL(string: urlString)!
@@ -140,9 +141,15 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                 if error == nil {
                     image = UIImage(data: data)
                     
-                    // Store the image in to our cache
-                    self.imageCache[urlString] = image
-                    self.updateGameImage(image, indexPath)
+                    if image == nil {
+                        image = UIImage(named: "Blank52")
+                    }
+                    else {
+                        // Store the image in to our cache
+                        self.imageCache[urlString] = image
+                        self.updateGameImage(image, indexPath)
+                    }
+                    
                 }
                 else {
                     println("Error: \(error.localizedDescription)")
