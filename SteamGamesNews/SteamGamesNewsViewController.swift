@@ -25,7 +25,6 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     // take string as key and stores UIImage as a value
     var imageCache = [String : UIImage]()
     
-//    var refreshControl:UIRefreshControl!  // An optional variable
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -143,6 +142,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                     
                     if image == nil {
                         image = UIImage(named: "Blank52")
+                        println(game.largeImageURL)
                     }
                     else {
                         // Store the image in to our cache

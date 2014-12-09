@@ -20,8 +20,6 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var news = [News]()
     lazy var api : SteamAPIController = SteamAPIController(delegate: self)
     
-//    var refreshControl:UIRefreshControl!  // An optional variable
-
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,6 +29,8 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         // load in the info being passed through for selected steam object
         titleLabel.title = self.game?.name
+        
+        
         gameImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.game!.largeImageURL)!)!)
         
         
