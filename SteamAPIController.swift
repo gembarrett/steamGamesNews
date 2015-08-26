@@ -50,7 +50,7 @@ class SteamAPIController {
                 println(error.localizedDescription)
             }
             var err: NSError?
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as! NSDictionary
             if((err) != nil) {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
@@ -59,11 +59,11 @@ class SteamAPIController {
             // if we're getting a list of games or a steamID
             if ((jsonResult["response"]) != nil) {
                     // create gameResults list
-                    let gameResults: NSDictionary = jsonResult["response"] as NSDictionary
+                    let gameResults: NSDictionary = jsonResult["response"] as! NSDictionary
             }
             // but if we're getting a list of newsitems for a game, create newsResults list instead
             else if ((jsonResult["appnews"]) != nil) {
-                let newsResults: NSDictionary = jsonResult["appnews"] as NSDictionary
+                let newsResults: NSDictionary = jsonResult["appnews"]as! NSDictionary
 //                let newsResults: NSArray = appnews["newsitems"] as NSArray
             }
             self.delegate.didReceiveAPIResults(jsonResult)

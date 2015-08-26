@@ -35,7 +35,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         
         // pull down news items based on selected game
-        if (self.game? != nil) {
+        if (self.game != nil) {
             api.lookupNews(self.game!.appid)
         }
         
@@ -68,7 +68,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell") as NewsItemCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell") as!NewsItemCell
         
         var newsItem = news[indexPath.row]
         cell.titleLabel.text = newsItem.title
@@ -77,7 +77,7 @@ class SteamDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // send steam object to news web view controller
-        var steamArticleViewController: SteamArticleViewController = segue.destinationViewController as SteamArticleViewController
+        var steamArticleViewController: SteamArticleViewController = segue.destinationViewController as! SteamArticleViewController
         // work out which object is selected
         var newsIndex = detailsTrackView!.indexPathForSelectedRow()?.row
         var selectedNews = self.news[newsIndex!].url

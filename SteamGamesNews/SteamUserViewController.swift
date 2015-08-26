@@ -44,7 +44,7 @@ class SteamUserViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var steamGamesNewsViewController: SteamGamesNewsViewController = segue.destinationViewController as SteamGamesNewsViewController
+        var steamGamesNewsViewController: SteamGamesNewsViewController = segue.destinationViewController as! SteamGamesNewsViewController
         vanityUsername = inputUsername.text
 
         steamGamesNewsViewController.toPass = vanityUsername

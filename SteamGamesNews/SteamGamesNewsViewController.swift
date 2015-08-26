@@ -51,7 +51,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // cast the steam object member to details view controller
         
-        let steamDetailsViewController = segue.destinationViewController as SteamDetailsViewController
+        let steamDetailsViewController = segue.destinationViewController as! SteamDetailsViewController
         
         // work out which steam object is selected at the moment the segue happens
         var gameIndex = self.collectionView?.indexPathsForSelectedItems()[0].item
@@ -66,7 +66,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
             
                 if (response["success"] != nil) {
                     
-                    let successCode = response["success"] as Int
+                    let successCode = response["success"] as! Int
                     switch successCode {
                         case 1:
                             println("we got a steam id")
@@ -76,7 +76,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
                             }
                         case 42:
                             println("no id match")
-                            let errorMessage = response["message"] as String
+                            let errorMessage = response["message"] as! String
                             var errorAlert = UIAlertController(title: "Something went wrong!", message: errorMessage, preferredStyle: .Alert)
                             errorAlert.addAction(UIAlertAction(title: "Return", style: .Default, handler:nil))
                             self.presentViewController(errorAlert, animated: true, completion: nil)
@@ -89,7 +89,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
             
                 // check that a user has games!
                 if (response["game_count"] != nil) {
-                    let gamesCount = response["game_count"] as Int
+                    let gamesCount = response["game_count"] as! Int
                     // if games list has been returned, add to array
                     if let games = response["games"] as? NSArray {
                         dispatch_async(dispatch_get_main_queue(), {
@@ -114,7 +114,7 @@ class SteamGamesNewsViewController: UICollectionViewController, SteamAPIControll
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: SteamGameCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as SteamGameCollectionViewCell
+        let cell: SteamGameCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! SteamGameCollectionViewCell
         
         // check to make sure this item exists
         let game = self.games[indexPath.item]

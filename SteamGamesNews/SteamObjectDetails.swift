@@ -22,8 +22,8 @@ class News {
         
         if newsResults.count > 0 {
             for thisNews in newsResults {
-                let newsTitle = thisNews["title"] as String
-                let newsurl = thisNews["url"] as String
+                let newsTitle = thisNews["title"] as! String
+                let newsurl = thisNews["url"] as! String
                 
                 let newsItem = News(title: newsTitle, url: newsurl)
                         

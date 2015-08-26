@@ -34,17 +34,17 @@ class Game {
             // check for gameResults or track
             for thisGame in gameResults {
                 
-                let name = thisGame["name"] as String
+                let name = thisGame["name"] as! String
 
-                let appInt = thisGame["appid"] as Int
+                let appInt = thisGame["appid"] as! Int
                 let appid : String = "\(appInt)"
                 
-                let playingTime = thisGame["playtime_forever"] as Int
+                let playingTime = thisGame["playtime_forever"] as! Int
                                 
-                let thumbnailImageID = thisGame["img_icon_url"] as String
+                let thumbnailImageID = thisGame["img_icon_url"] as! String
                 let thumbnailImageURL = "http://cdn.akamai.steamstatic.com/steam/apps/\(appid)/capsule_184x69.jpg"
                 
-                let largeImageID = thisGame["img_logo_url"] as String
+                let largeImageID = thisGame["img_logo_url"] as! String
                 let largeImageURL = "http://cdn.akamai.steamstatic.com/steam/apps/\(appid)/header.jpg"
                                 
                 let newGame = Game(appid: appid, name: name, thumbnailImageURL: thumbnailImageURL, largeImageURL: largeImageURL, playingTime: playingTime)
